@@ -1,0 +1,1289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
+  <title>
+    West Boynton Travel | Road to Pigeon Forge
+  </title>
+
+  <style>
+    :root {
+      --blue: #0b35ff;
+      --blue-soft: #2d5cff;
+      --black: #05070c;
+      --black-2: #0a0f19;
+      --white: #ffffff;
+      --silver: #c7ccd4;
+      --silver-dark: #7f8998;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(11, 53, 255, 0.20),
+          transparent 26%
+        ),
+        radial-gradient(
+          circle at 80% 25%,
+          rgba(45, 92, 255, 0.14),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          #05070c 0%,
+          #070b13 42%,
+          #030509 100%
+        );
+
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        );
+
+      background-size:
+        44px 44px;
+
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      width: 100%;
+      border-bottom:
+        1px solid rgba(255,255,255,0.08);
+
+      background:
+        rgba(4, 7, 13, 0.92);
+
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-inner {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+      min-height: 74px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-mini {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+
+      background:
+        var(--blue);
+
+      box-shadow:
+        0 0 20px
+        rgba(11, 53, 255, 0.85);
+    }
+
+    .topbar-badge {
+      border:
+        1px solid rgba(255,255,255,0.14);
+
+      border-radius: 999px;
+
+      padding:
+        9px 14px;
+
+      color:
+        #dce2eb;
+
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 690px;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+
+      border-bottom:
+        1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 72% 38%,
+          rgba(11, 53, 255, 0.34),
+          transparent 24%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(4,7,13,0.98) 0%,
+          rgba(4,7,13,0.86) 45%,
+          rgba(4,7,13,0.48) 100%
+        );
+
+      z-index: 1;
+    }
+
+    .mountains {
+      position: absolute;
+      inset:
+        auto 0 0 0;
+
+      height: 330px;
+
+      opacity: 0.66;
+
+      background:
+        linear-gradient(
+          140deg,
+          transparent 0 20%,
+          #101726 20% 32%,
+          transparent 32% 36%,
+          #182235 36% 48%,
+          transparent 48% 52%,
+          #0d1421 52% 64%,
+          transparent 64% 68%,
+          #131c2b 68% 81%,
+          transparent 81%
+        );
+
+      filter:
+        drop-shadow(
+          0 -10px 40px
+          rgba(11,53,255,0.10)
+        );
+
+      z-index: 0;
+    }
+
+    .hero-inner {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns:
+        1.1fr 0.9fr;
+
+      align-items: center;
+      gap: 50px;
+
+      position: relative;
+      z-index: 2;
+
+      padding:
+        76px 0 96px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      padding:
+        9px 14px;
+
+      margin-bottom: 22px;
+
+      border:
+        1px solid rgba(255,255,255,0.14);
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,255,255,0.035);
+
+      color:
+        #dce2eb;
+
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow span {
+      color: var(--blue-soft);
+    }
+
+    h1 {
+      font-size:
+        clamp(3.6rem, 8vw, 7.4rem);
+
+      line-height: 0.88;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+
+      font-weight: 1000;
+
+      margin-bottom: 24px;
+    }
+
+    h1 .blue {
+      display: block;
+      color: var(--blue-soft);
+
+      text-shadow:
+        0 0 24px
+        rgba(11,53,255,0.34);
+    }
+
+    .hero-copy {
+      max-width: 650px;
+
+      font-size:
+        clamp(1.04rem, 1.7vw, 1.22rem);
+
+      line-height: 1.65;
+      color: #cdd4de;
+
+      margin-bottom: 28px;
+    }
+
+    .hero-copy strong {
+      color: var(--white);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      margin-bottom: 28px;
+    }
+
+    .stat {
+      min-width: 140px;
+
+      padding:
+        16px 18px;
+
+      border:
+        1px solid rgba(255,255,255,0.10);
+
+      border-radius: 16px;
+
+      background:
+        rgba(255,255,255,0.04);
+
+      box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,0.03);
+    }
+
+    .stat strong {
+      display: block;
+
+      font-size: 1.45rem;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: #99a4b3;
+
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .hero-note {
+      color: #8e99a8;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .logo-stage {
+      position: relative;
+
+      min-height: 470px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-ring,
+    .logo-ring-2 {
+      position: absolute;
+
+      border-radius: 50%;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.10);
+    }
+
+    .logo-ring {
+      width: 430px;
+      height: 430px;
+
+      box-shadow:
+        0 0 90px
+        rgba(11,53,255,0.22);
+    }
+
+    .logo-ring-2 {
+      width: 330px;
+      height: 330px;
+
+      border-color:
+        rgba(11,53,255,0.30);
+    }
+
+    .logo-glow {
+      position: absolute;
+
+      width: 320px;
+      height: 320px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(11,53,255,0.38),
+          rgba(11,53,255,0.05) 55%,
+          transparent 72%
+        );
+
+      filter: blur(10px);
+    }
+
+    .logo-stage img {
+      width: min(390px, 88%);
+      max-height: 390px;
+      object-fit: contain;
+
+      position: relative;
+      z-index: 3;
+
+      filter:
+        drop-shadow(
+          0 20px 28px
+          rgba(0,0,0,0.58)
+        )
+        drop-shadow(
+          0 0 24px
+          rgba(11,53,255,0.20)
+        );
+    }
+
+    .section {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+
+      padding:
+        82px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-kicker {
+      color: var(--blue-soft);
+
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 {
+      font-size:
+        clamp(2.2rem, 5vw, 4rem);
+
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: #a9b3c0;
+      line-height: 1.6;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .players-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 18px;
+    }
+
+    .player-card {
+      position: relative;
+
+      min-height: 215px;
+
+      padding: 26px;
+
+      border:
+        1px solid rgba(255,255,255,0.10);
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          150deg,
+          rgba(255,255,255,0.060),
+          rgba(255,255,255,0.018)
+        );
+
+      text-decoration: none;
+      color: inherit;
+
+      overflow: hidden;
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .player-card::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(11,53,255,0.20),
+          transparent 36%
+        );
+
+      opacity: 0.65;
+    }
+
+    .player-card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(45,92,255,0.55);
+
+      box-shadow:
+        0 18px 50px
+        rgba(0,0,0,0.33),
+        0 0 26px
+        rgba(11,53,255,0.10);
+    }
+
+    .player-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .player-number {
+      width: 62px;
+      height: 62px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 36% 30%,
+          #ffffff 0 40%,
+          #e5e9ef 70%,
+          #cfd5dd 100%
+        );
+
+      color: #08101e;
+
+      font-weight: 1000;
+      font-size: 1.35rem;
+
+      margin-bottom: 20px;
+
+      border:
+        2px solid
+        rgba(255,255,255,0.85);
+
+      box-shadow:
+        0 8px 16px
+        rgba(0,0,0,0.28);
+    }
+
+    .player-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .support-text {
+      color: #aab4c0;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .arrow {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+
+      color: var(--blue-soft);
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+
+    .how-it-works {
+      margin-top: 12px;
+
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 18px;
+    }
+
+    .step-card {
+      padding: 26px;
+
+      border-radius: 20px;
+
+      border:
+        1px solid rgba(255,255,255,0.09);
+
+      background:
+        rgba(255,255,255,0.03);
+    }
+
+    .step-number {
+      color: var(--blue-soft);
+
+      font-weight: 1000;
+      font-size: 2.2rem;
+
+      margin-bottom: 14px;
+    }
+
+    .step-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .step-card p {
+      color: #9ca7b4;
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+
+    .footer {
+      border-top:
+        1px solid rgba(255,255,255,0.08);
+
+      margin-top: 20px;
+
+      padding:
+        34px 20px 46px;
+
+      text-align: center;
+
+      color: #6f7b89;
+      font-size: 0.82rem;
+    }
+
+    .footer strong {
+      color: #aab4c0;
+    }
+
+    @media (
+      max-width: 900px
+    ) {
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+
+        padding-top: 58px;
+      }
+
+      .hero-copy {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .logo-stage {
+        min-height: 360px;
+      }
+
+      .logo-ring {
+        width: 330px;
+        height: 330px;
+      }
+
+      .logo-ring-2 {
+        width: 260px;
+        height: 260px;
+      }
+
+      .players-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .how-it-works {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (
+      max-width: 560px
+    ) {
+
+      .topbar-inner {
+        min-height: 64px;
+      }
+
+      .brand-mini {
+        font-size: 0.72rem;
+      }
+
+      .topbar-badge {
+        display: none;
+      }
+
+      .hero-inner {
+        width: 94%;
+        padding:
+          44px 0 70px;
+      }
+
+      h1 {
+        font-size:
+          clamp(3.25rem, 17vw, 5.15rem);
+      }
+
+      .hero-copy {
+        font-size: 0.98rem;
+      }
+
+      .stat {
+        flex: 1 1 30%;
+        min-width: 0;
+        padding: 13px 10px;
+      }
+
+      .stat strong {
+        font-size: 1.15rem;
+      }
+
+      .stat span {
+        font-size: 0.63rem;
+      }
+
+      .logo-stage {
+        min-height: 300px;
+      }
+
+      .logo-ring {
+        width: 280px;
+        height: 280px;
+      }
+
+      .logo-ring-2 {
+        width: 220px;
+        height: 220px;
+      }
+
+      .section {
+        width: 94%;
+        padding: 62px 0;
+      }
+
+      .players-grid {
+        gap: 12px;
+      }
+
+      .player-card {
+        min-height: 190px;
+        padding: 19px 16px;
+      }
+
+      .player-number {
+        width: 52px;
+        height: 52px;
+
+        font-size: 1.1rem;
+      }
+
+      .player-card h3 {
+        font-size: 1rem;
+      }
+
+      .support-text {
+        font-size: 0.79rem;
+      }
+
+      .arrow {
+        right: 15px;
+        bottom: 15px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <header class="topbar">
+    <div class="topbar-inner">
+
+      <div class="brand-mini">
+        <span class="brand-dot"></span>
+        West Boynton Travel
+      </div>
+
+      <div class="topbar-badge">
+        Road to Pigeon Forge
+      </div>
+
+    </div>
+  </header>
+
+
+  <section class="hero">
+
+    <div class="mountains"></div>
+
+    <div class="hero-inner">
+
+      <div>
+
+        <div class="eyebrow">
+          <span>WBT Cobras</span>
+          •
+          Pigeon Forge, Tennessee
+        </div>
+
+        <h1>
+          Road To
+          <span class="blue">
+            Pigeon Forge
+          </span>
+        </h1>
+
+        <p class="hero-copy">
+          Help the
+          <strong>
+            West Boynton Travel Cobras
+          </strong>
+          make the trip to Pigeon Forge.
+          Choose a player below and support
+          their journey by selecting one or
+          more baseballs from their fundraiser.
+        </p>
+
+        <div class="hero-stats">
+
+          <div class="stat">
+            <strong>60</strong>
+            <span>
+              Baseballs
+            </span>
+          </div>
+
+          <div class="stat">
+            <strong>$1–$60</strong>
+            <span>
+              Donation Range
+            </span>
+          </div>
+
+          <div class="stat">
+            <strong>$1,830</strong>
+            <span>
+              Player Goal
+            </span>
+          </div>
+
+        </div>
+
+        <p class="hero-note">
+          Each baseball number equals its donation amount.
+          Baseball #7 is $7, baseball #25 is $25,
+          and baseball #60 is $60.
+        </p>
+
+      </div>
+
+
+      <div class="logo-stage">
+
+        <div class="logo-glow"></div>
+        <div class="logo-ring"></div>
+        <div class="logo-ring-2"></div>
+
+        <img
+          src="wbt-logo.png"
+          alt="West Boynton Travel Cobras"
+        />
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <main>
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <div class="section-kicker">
+          Choose Your Player
+        </div>
+
+        <h2>
+          Support the Cobras
+        </h2>
+
+        <p>
+          Select a player to open their individual
+          Road to Pigeon Forge fundraiser.
+        </p>
+
+      </div>
+
+
+      <div class="players-grid">
+
+
+        <a
+          class="player-card"
+          href="fundraiser.html?player=caden-thornton"
+        >
+          <div class="player-number">
+            2
+          </div>
+
+          <h3>
+            Caden Thornton
+          </h3>
+
+          <div class="support-text">
+            View Caden's 60 baseballs and help
+            support his trip to Pigeon Forge.
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+        </a>
+
+
+        <a
+          class="player-card"
+          href="fundraiser.html?player=ethan-novak"
+        >
+          <div class="player-number">
+            3
+          </div>
+
+          <h3>
+            Ethan Novak
+          </h3>
+
+          <div class="support-text">
+            View Ethan's fundraiser and choose
+            baseballs to support his journey.
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+        </a>
+
+
+        <a
+          class="player-card"
+          href="fundraiser.html?player=connor-criss"
+        >
+          <div class="player-number">
+            4
+          </div>
+
+          <h3>
+            Connor Criss
+          </h3>
+
+          <div class="support-text">
+            Help Connor reach his Road to
+            Pigeon Forge fundraising goal.
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+        </a>
+
+
+        <a
+          class="player-card"
+          href="fundraiser.html?player=khristian-ramos"
+        >
+          <div class="player-number">
+            5
+          </div>
+
+          <h3>
+            Khristian Ramos
+          </h3>
+
+          <div class="support-text">
+            Choose a baseball and support
+            Khristian's Pigeon Forge trip.
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+        </a>
+
+
+        <a
+          class="player-card"
+          href="fundraiser.html?player=william-easterbrook"
+        >
+          <div class="player-number">
+            7
+          </div>
+
+          <h3>
+            William Easterbrook
+          </h3>
+
+          <div class="support-text">
+            Support William and help send
+            the Cobras to Pigeon Forge.
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+        </a>
+
+
+        <a
+          class="player-card"
+          href="fundraiser.html?player=kua-duchene"
+        >
+          <div class="player-number">
+            11
+          </div>
+
+          <h3>
+            Kua Duchene
+          </h3>
+
+          <div class="support-text">
+            Select one or more baseballs
+            to support Kua's fundraiser.
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+        </a>
+
+
+        <a
+          class="player-card"
+          href="fundraiser.html?player=roberto-alberto"
+        >
+          <div class="player-number">
+            13
+          </div>
+
+          <h3>
+            Roberto Alberto
+          </h3>
+
+          <div class="support-text">
+            Help Roberto get closer to his
+            $1,830 fundraising goal.
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+        </a>
+
+
+        <a
+          class="player-card"
+          href="fundraiser.html?player=adrian-guerra"
+        >
+          <div class="player-number">
+            18
+          </div>
+
+          <h3>
+            Adrian Guerra
+          </h3>
+
+          <div class="support-text">
+            Support Adrian's Road to Pigeon
+            Forge one baseball at a time.
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+        </a>
+
+
+        <a
+          class="player-card"
+          href="fundraiser.html?player=jaxon-graham"
+        >
+          <div class="player-number">
+            24
+          </div>
+
+          <h3>
+            Jaxon Graham
+          </h3>
+
+          <div class="support-text">
+            Choose baseballs and help Jaxon
+            make the trip to Tennessee.
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+        </a>
+
+
+        <a
+          class="player-card"
+          href="fundraiser.html?player=mason-haygood"
+        >
+          <div class="player-number">
+            33
+          </div>
+
+          <h3>
+            Mason Haygood
+          </h3>
+
+          <div class="support-text">
+            Support Mason's fundraiser and
+            help the Cobras reach Pigeon Forge.
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+        </a>
+
+
+        <a
+          class="player-card"
+          href="fundraiser.html?player=ezra-espinal"
+        >
+          <div class="player-number">
+            44
+          </div>
+
+          <h3>
+            Ezra Espinal
+          </h3>
+
+          <div class="support-text">
+            Help Ezra reach his goal and
+            support the WBT Cobras.
+          </div>
+
+          <div class="arrow">
+            →
+          </div>
+        </a>
+
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <div class="section-kicker">
+          Simple Fundraising
+        </div>
+
+        <h2>
+          How It Works
+        </h2>
+
+      </div>
+
+
+      <div class="how-it-works">
+
+        <div class="step-card">
+
+          <div class="step-number">
+            01
+          </div>
+
+          <h3>
+            Pick a Player
+          </h3>
+
+          <p>
+            Choose the West Boynton Travel
+            player you want to support.
+          </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+          <div class="step-number">
+            02
+          </div>
+
+          <h3>
+            Select Baseballs
+          </h3>
+
+          <p>
+            Every baseball is numbered from
+            1 through 60. The number equals
+            the donation amount.
+          </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+          <div class="step-number">
+            03
+          </div>
+
+          <h3>
+            Help Them Reach Pigeon Forge
+          </h3>
+
+          <p>
+            Complete checkout securely and
+            your support goes toward that
+            player's fundraising total.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="footer">
+
+    <strong>
+      West Boynton Travel Cobras
+    </strong>
+
+    <br />
+
+    Road to Pigeon Forge Fundraiser
+
+  </footer>
+
+</div>
+
+</body>
+</html>
