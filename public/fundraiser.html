@@ -2,28 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>
-    West Boynton Travel | Player Fundraiser
-  </title>
+  <title>West Boynton Travel | Road to Pigeon Forge</title>
 
   <style>
     :root {
-      --blue: #0b35ff;
-      --blue-light: #4167ff;
+      --primary: #0b35ff;
+      --primary-light: #4167ff;
       --black: #05070c;
-      --black-soft: #0a0f18;
-      --panel: #0c121d;
+      --black-2: #090d15;
+      --panel: #0d131f;
       --white: #ffffff;
-      --silver: #c5cad2;
-      --muted: #919caa;
+      --silver: #c6cbd3;
+      --muted: #929dab;
       --line: rgba(255,255,255,0.09);
-      --green: #39d998;
-      --red: #ff6073;
+      --green: #3ad89a;
+      --red: #ff6477;
     }
 
     * {
@@ -49,9 +44,9 @@
 
       background:
         radial-gradient(
-          circle at 78% 10%,
-          rgba(11,53,255,0.17),
-          transparent 28%
+          circle at 80% 8%,
+          rgba(11,53,255,0.19),
+          transparent 27%
         ),
         linear-gradient(
           180deg,
@@ -77,7 +72,8 @@
           transparent 1px
         );
 
-      background-size: 46px 46px;
+      background-size:
+        46px 46px;
 
       pointer-events: none;
       z-index: 0;
@@ -97,12 +93,14 @@
       z-index: 1;
     }
 
+    /* HEADER */
+
     .topbar {
       border-bottom:
         1px solid var(--line);
 
       background:
-        rgba(4,6,10,0.94);
+        rgba(4,6,10,0.95);
 
       backdrop-filter:
         blur(12px);
@@ -115,13 +113,13 @@
       margin: 0 auto;
 
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      align-items: center;
+      gap: 18px;
     }
 
     .back-link {
-      color: #d0d7e1;
+      color: #d5dbe4;
       text-decoration: none;
 
       font-size: 0.78rem;
@@ -134,11 +132,11 @@
     .mini-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
 
-      color: #aab4c1;
+      color: #a9b3c0;
 
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 900;
 
       letter-spacing: 0.12em;
@@ -151,63 +149,90 @@
 
       border-radius: 50%;
 
-      background: var(--blue);
+      background: var(--primary);
 
       box-shadow:
         0 0 18px
         rgba(11,53,255,0.9);
     }
 
+    /* PAYMENT MESSAGE */
+
     .payment-banner {
       display: none;
 
       width: min(1180px,92%);
-      margin: 16px auto 0;
 
-      padding: 14px 17px;
+      margin:
+        16px auto 0;
+
+      padding:
+        14px 17px;
 
       border-radius: 14px;
 
       font-size: 0.86rem;
       font-weight: 800;
+
       line-height: 1.45;
     }
 
     .payment-banner.success {
       display: block;
 
-      color: #7be6b9;
+      color: #78e5b7;
 
       background:
-        rgba(57,217,152,0.10);
+        rgba(58,216,154,0.10);
 
       border:
         1px solid
-        rgba(57,217,152,0.25);
+        rgba(58,216,154,0.24);
     }
 
     .payment-banner.cancelled {
       display: block;
 
-      color: #b3bdc8;
+      color: #b6c0cb;
 
       background:
         rgba(255,255,255,0.035);
 
       border:
-        1px solid
-        rgba(255,255,255,0.09);
+        1px solid var(--line);
     }
+
+    /* HERO */
 
     .hero {
       position: relative;
-
       overflow: hidden;
 
-      min-height: 510px;
+      min-height: 525px;
 
       border-bottom:
         1px solid var(--line);
+    }
+
+    .hero-glow {
+      position: absolute;
+
+      width: 600px;
+      height: 600px;
+
+      right: -120px;
+      top: -140px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(11,53,255,0.22),
+          transparent 68%
+        );
+
+      filter: blur(6px);
     }
 
     .mountain-back {
@@ -216,22 +241,22 @@
       right: 0;
       bottom: 0;
 
-      height: 280px;
+      height: 290px;
 
-      opacity: 0.35;
+      opacity: 0.36;
 
       clip-path:
         polygon(
-          0 83%,
-          9% 67%,
-          18% 76%,
-          28% 44%,
-          37% 66%,
-          46% 37%,
-          56% 62%,
-          66% 34%,
-          76% 63%,
-          87% 44%,
+          0 85%,
+          8% 68%,
+          17% 77%,
+          26% 45%,
+          36% 66%,
+          45% 37%,
+          55% 60%,
+          66% 32%,
+          77% 63%,
+          88% 44%,
           100% 73%,
           100% 100%,
           0 100%
@@ -240,8 +265,8 @@
       background:
         linear-gradient(
           180deg,
-          #1a2439,
-          #0b111b
+          #1c273c,
+          #0a1019
         );
     }
 
@@ -251,22 +276,22 @@
       right: 0;
       bottom: 0;
 
-      height: 210px;
+      height: 215px;
 
-      opacity: 0.82;
+      opacity: 0.86;
 
       clip-path:
         polygon(
-          0 74%,
-          10% 55%,
+          0 75%,
+          10% 57%,
           19% 70%,
-          30% 44%,
-          39% 68%,
-          49% 50%,
+          29% 45%,
+          38% 68%,
+          49% 49%,
           60% 72%,
-          70% 47%,
+          70% 48%,
           82% 71%,
-          91% 53%,
+          91% 54%,
           100% 75%,
           100% 100%,
           0 100%
@@ -285,20 +310,21 @@
       z-index: 3;
 
       width: min(1180px,92%);
-      min-height: 510px;
+      min-height: 525px;
 
       margin: 0 auto;
 
       padding:
-        60px 0 96px;
+        58px 0 100px;
 
       display: grid;
+
       grid-template-columns:
         minmax(0,1fr)
-        minmax(280px,0.78fr);
+        minmax(300px,0.74fr);
 
       align-items: center;
-      gap: 42px;
+      gap: 44px;
     }
 
     .eyebrow {
@@ -308,28 +334,30 @@
 
       margin-bottom: 18px;
 
-      padding: 8px 13px;
+      padding:
+        8px 13px;
 
       border:
-        1px solid rgba(255,255,255,0.11);
+        1px solid
+        rgba(255,255,255,0.11);
 
       border-radius: 999px;
 
       background:
         rgba(255,255,255,0.035);
 
-      color: #c3cbd5;
+      color: #c4ccd6;
 
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 900;
 
-      letter-spacing: 0.13em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
     .player-title {
       font-size:
-        clamp(3.2rem,7vw,6.8rem);
+        clamp(3.3rem,7vw,6.8rem);
 
       line-height: 0.88;
 
@@ -345,7 +373,7 @@
     .player-title span {
       display: block;
 
-      color: var(--blue-light);
+      color: var(--primary-light);
 
       text-shadow:
         0 0 28px
@@ -355,21 +383,23 @@
     .hero-copy {
       max-width: 650px;
 
-      color: #aeb8c5;
+      color: #afb9c5;
 
       line-height: 1.62;
 
       font-size: 1rem;
     }
 
-    .logo-stage {
-      position: relative;
+    /* LOGO */
 
+    .logo-stage {
       min-height: 340px;
 
+      position: relative;
+
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
     }
 
     .logo-glow {
@@ -384,7 +414,7 @@
         radial-gradient(
           circle,
           rgba(11,53,255,0.30),
-          rgba(11,53,255,0.06) 56%,
+          rgba(11,53,255,0.06) 58%,
           transparent 73%
         );
     }
@@ -399,7 +429,7 @@
 
       border:
         1px solid
-        rgba(255,255,255,0.08);
+        rgba(255,255,255,0.09);
     }
 
     .logo-ring-2 {
@@ -427,23 +457,28 @@
       filter:
         drop-shadow(
           0 22px 28px
-          rgba(0,0,0,0.55)
+          rgba(0,0,0,0.54)
         );
     }
 
+    /* MAIN */
+
     .content {
       width: min(1180px,92%);
+
       margin: 0 auto;
 
       padding:
-        0 0 85px;
+        0 0 86px;
     }
+
+    /* PROGRESS */
 
     .progress-card {
       position: relative;
       z-index: 10;
 
-      margin-top: -58px;
+      margin-top: -60px;
 
       padding: 24px;
 
@@ -461,23 +496,24 @@
         );
 
       box-shadow:
-        0 22px 50px
+        0 22px 52px
         rgba(0,0,0,0.42);
     }
 
     .progress-top {
       display: flex;
-      align-items: end;
       justify-content: space-between;
+      align-items: end;
+
       gap: 20px;
 
-      margin-bottom: 16px;
+      margin-bottom: 15px;
     }
 
     .progress-label {
-      color: #8f9aa7;
+      color: #8d98a5;
 
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 900;
 
       letter-spacing: 0.14em;
@@ -488,7 +524,7 @@
 
     .raised-value {
       font-size:
-        clamp(2rem,5vw,3.25rem);
+        clamp(2.1rem,5vw,3.35rem);
 
       font-weight: 1000;
 
@@ -500,7 +536,7 @@
 
       text-align: right;
 
-      font-size: 0.86rem;
+      font-size: 0.84rem;
     }
 
     .progress-track {
@@ -519,20 +555,20 @@
     }
 
     .progress-fill {
-      height: 100%;
       width: 0%;
+      height: 100%;
 
       border-radius: inherit;
 
       background:
         linear-gradient(
           90deg,
-          #0b35ff,
-          #4167ff
+          var(--primary),
+          var(--primary-light)
         );
 
       box-shadow:
-        0 0 20px
+        0 0 22px
         rgba(11,53,255,0.34);
 
       transition:
@@ -543,17 +579,19 @@
       display: flex;
       justify-content: space-between;
 
-      gap: 14px;
+      gap: 12px;
 
       margin-top: 9px;
 
-      color: #798594;
+      color: #7d8896;
 
-      font-size: 0.75rem;
+      font-size: 0.74rem;
     }
 
+    /* SECTIONS */
+
     .section {
-      padding-top: 64px;
+      padding-top: 62px;
     }
 
     .section-head {
@@ -561,9 +599,9 @@
     }
 
     .section-kicker {
-      color: var(--blue-light);
+      color: var(--primary-light);
 
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 900;
 
       letter-spacing: 0.16em;
@@ -574,7 +612,7 @@
 
     .section-head h2 {
       font-size:
-        clamp(2.2rem,4.7vw,3.7rem);
+        clamp(2.2rem,4.7vw,3.65rem);
 
       letter-spacing: -0.045em;
 
@@ -590,6 +628,8 @@
 
       line-height: 1.55;
     }
+
+    /* BASEBALL GRID */
 
     .balls-grid {
       display: grid;
@@ -617,18 +657,18 @@
 
       border:
         2px solid
-        rgba(236,239,243,0.95);
+        rgba(236,239,243,0.96);
 
       background:
         radial-gradient(
           circle at 35% 28%,
-          #ffffff 0 28%,
-          #f2f3f5 53%,
-          #d9dde2 78%,
+          #ffffff 0 27%,
+          #f3f4f6 52%,
+          #dde0e5 77%,
           #c7ccd3 100%
         );
 
-      color: #111722;
+      color: #101620;
 
       font-size:
         clamp(0.82rem,1.4vw,1.05rem);
@@ -639,12 +679,12 @@
         inset -8px -10px 15px
         rgba(0,0,0,0.09),
         0 8px 18px
-        rgba(0,0,0,0.27);
+        rgba(0,0,0,0.26);
 
       transition:
-        transform 0.16s ease,
-        box-shadow 0.16s ease,
-        border-color 0.16s ease;
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        border-color 0.15s ease;
     }
 
     .ball::before,
@@ -665,18 +705,20 @@
       left: 10%;
 
       border-left:
-        2px dashed #d83144;
+        2px dashed #d62f43;
 
-      transform: rotate(14deg);
+      transform:
+        rotate(14deg);
     }
 
     .ball::after {
       right: 10%;
 
       border-right:
-        2px dashed #d83144;
+        2px dashed #d62f43;
 
-      transform: rotate(-14deg);
+      transform:
+        rotate(-14deg);
     }
 
     .ball.available:hover {
@@ -695,7 +737,7 @@
 
     .ball.selected {
       border-color:
-        var(--blue-light);
+        var(--primary-light);
 
       box-shadow:
         inset -8px -10px 15px
@@ -707,33 +749,36 @@
     }
 
     .ball.sold {
-      color: #7f8996;
-
       cursor: default;
+
+      color: #7e8996;
+
+      border-color:
+        #454c56;
 
       background:
         radial-gradient(
           circle at 35% 28%,
-          #434a55,
+          #424a55,
           #282e37 56%,
           #181c22 100%
         );
 
-      border-color: #454c56;
-
       box-shadow:
         inset -8px -10px 15px
-        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.26),
         0 7px 14px
         rgba(0,0,0,0.24);
     }
 
     .ball.sold::before {
-      border-left-color: #77434a;
+      border-left-color:
+        #76434a;
     }
 
     .ball.sold::after {
-      border-right-color: #77434a;
+      border-right-color:
+        #76434a;
     }
 
     .donor-name {
@@ -751,6 +796,8 @@
       word-break: break-word;
     }
 
+    /* CHECKOUT */
+
     .checkout-layout {
       display: grid;
 
@@ -767,7 +814,8 @@
       padding: 24px;
 
       border:
-        1px solid rgba(255,255,255,0.09);
+        1px solid
+        rgba(255,255,255,0.09);
 
       border-radius: 20px;
 
@@ -786,7 +834,7 @@
     }
 
     .panel-sub {
-      color: #8e99a7;
+      color: #8f9aa7;
 
       font-size: 0.88rem;
 
@@ -801,7 +849,8 @@
       padding: 15px;
 
       border:
-        1px solid rgba(255,255,255,0.07);
+        1px solid
+        rgba(255,255,255,0.07);
 
       border-radius: 14px;
 
@@ -818,7 +867,7 @@
 
       padding: 6px 0;
 
-      color: #a7b1bd;
+      color: #a8b2bd;
 
       font-size: 0.87rem;
     }
@@ -836,7 +885,7 @@
 
       margin-bottom: 6px;
 
-      color: #b3bdc9;
+      color: #b3bdc8;
 
       font-size: 0.76rem;
       font-weight: 900;
@@ -849,13 +898,15 @@
       padding: 14px;
 
       border:
-        1px solid rgba(255,255,255,0.12);
+        1px solid
+        rgba(255,255,255,0.12);
 
       border-radius: 12px;
 
       outline: none;
 
-      background: #080d15;
+      background:
+        #080d15;
 
       color: var(--white);
     }
@@ -876,7 +927,7 @@
 
       margin-bottom: 16px;
 
-      color: #abb5c1;
+      color: #aeb8c3;
 
       font-size: 0.85rem;
     }
@@ -885,7 +936,8 @@
       width: 18px;
       height: 18px;
 
-      accent-color: var(--blue);
+      accent-color:
+        var(--primary);
     }
 
     .primary-btn {
@@ -904,8 +956,8 @@
       background:
         linear-gradient(
           90deg,
-          #0b35ff,
-          #4167ff
+          var(--primary),
+          var(--primary-light)
         );
 
       box-shadow:
@@ -914,7 +966,8 @@
     }
 
     .primary-btn:hover {
-      filter: brightness(1.07);
+      filter:
+        brightness(1.07);
     }
 
     .primary-btn:disabled {
@@ -930,11 +983,11 @@
       padding: 12px 15px;
 
       border:
-        1px solid rgba(255,255,255,0.09);
+        1px solid var(--line);
 
       border-radius: 12px;
 
-      color: #9da8b5;
+      color: #9ca7b4;
 
       background:
         rgba(255,255,255,0.025);
@@ -977,7 +1030,8 @@
       padding: 10px 8px;
 
       border:
-        1px solid rgba(255,255,255,0.09);
+        1px solid
+        var(--line);
 
       border-radius: 11px;
 
@@ -1040,7 +1094,6 @@
       .checkout-layout {
         grid-template-columns: 1fr;
       }
-
     }
 
     @media (max-width: 720px) {
@@ -1051,7 +1104,6 @@
 
         gap: 11px;
       }
-
     }
 
     @media (max-width: 540px) {
@@ -1105,7 +1157,6 @@
         grid-template-columns:
           repeat(2,1fr);
       }
-
     }
   </style>
 </head>
@@ -1115,12 +1166,11 @@
 <div class="page">
 
   <header class="topbar">
-
     <div class="topbar-inner">
 
       <a
         class="back-link"
-        href="index.html"
+        href="/"
       >
         ← Back to Team
       </a>
@@ -1131,7 +1181,6 @@
       </div>
 
     </div>
-
   </header>
 
 
@@ -1143,6 +1192,7 @@
 
   <section class="hero">
 
+    <div class="hero-glow"></div>
     <div class="mountain-back"></div>
     <div class="mountain-front"></div>
 
@@ -1167,8 +1217,8 @@
         <p class="hero-copy">
           Select one or more available baseballs below.
           Each baseball number equals the donation amount.
-          Your support helps this player on the
-          Road to Pigeon Forge.
+          Your support helps this player on the Road to
+          Pigeon Forge.
         </p>
 
       </div>
@@ -1181,8 +1231,8 @@
         <div class="logo-ring-2"></div>
 
         <img
-          src="wbt-logo.png"
-          alt="West Boynton Travel"
+          src="/wbt-logo.png"
+          alt="West Boynton Travel Cobras"
         />
 
       </div>
@@ -1224,12 +1274,10 @@
 
 
       <div class="progress-track">
-
         <div
           id="progressFill"
           class="progress-fill"
         ></div>
-
       </div>
 
 
@@ -1261,10 +1309,9 @@
         </h2>
 
         <p>
-          White baseballs are available.
-          Dark baseballs have already been sold.
-          Select as many available baseballs as you want
-          before checking out.
+          White baseballs are still available.
+          Dark baseballs have already been purchased.
+          Select one or multiple available baseballs.
         </p>
 
       </div>
@@ -1291,36 +1338,25 @@
           </h3>
 
           <p class="panel-sub">
-            The donation total is the combined value
-            of your selected baseball numbers.
+            Your donation total is the combined value
+            of each baseball you select.
           </p>
 
 
           <div class="selected-summary">
 
             <div class="selected-row">
-
-              <span>
-                Baseballs
-              </span>
-
+              <span>Baseballs</span>
               <strong id="selectedBallsText">
                 None
               </strong>
-
             </div>
 
-
             <div class="selected-row">
-
-              <span>
-                Donation Total
-              </span>
-
+              <span>Donation Total</span>
               <strong id="selectedTotal">
                 $0
               </strong>
-
             </div>
 
           </div>
@@ -1387,9 +1423,9 @@
           </h3>
 
           <p class="panel-sub">
-            Want to support this player without
-            choosing a baseball? Make a donation
-            of any amount starting at $1.
+            Prefer not to select a baseball?
+            Support this player with any donation
+            amount starting at $1.
           </p>
 
 
@@ -1647,7 +1683,7 @@
         "payment-banner success";
 
       paymentBanner.textContent =
-        "Thank you! Your payment was successful. Your fundraiser progress will update as soon as the payment is confirmed.";
+        "Thank you! Your payment was successful. Your fundraiser will update as soon as Stripe confirms the payment.";
 
     }
 
@@ -1669,10 +1705,9 @@
 
     const balls =
       [...selectedBalls]
-        .sort(
-          (a,b) =>
-            a - b
-        );
+      .sort(
+        (a,b) => a - b
+      );
 
 
     const total =
@@ -1763,7 +1798,9 @@
 
 
       const soldBall =
-        soldMap.get(number);
+        soldMap.get(
+          number
+        );
 
 
       button.className =
@@ -2078,10 +2115,9 @@
 
       const baseballs =
         [...selectedBalls]
-          .sort(
-            (a,b) =>
-              a - b
-          );
+        .sort(
+          (a,b) => a - b
+        );
 
 
       if (!baseballs.length) {
