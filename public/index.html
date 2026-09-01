@@ -1,29 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
 
-  <title>West Boynton Travel | Road to Pigeon Forge</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    West Boynton Travel | Road to Pigeon Forge
+  </title>
+
+  <meta
+    name="description"
+    content="Support West Boynton Travel Cobras on the Road to Pigeon Forge and the Ripken Experience in Tennessee."
+  />
+
+  <meta name="theme-color" content="#03050a" />
 
   <style>
     :root {
       --blue: #0b35ff;
-      --blue-light: #4167ff;
-      --blue-glow: rgba(11, 53, 255, 0.32);
-      --black: #05070c;
-      --black-soft: #0a0f18;
-      --panel: #0c121d;
+      --blue-light: #7f98ff;
+      --silver: #cbd1da;
+      --silver-light: #f3f5f8;
       --white: #ffffff;
-      --silver: #c5cad2;
-      --silver-dark: #8993a1;
-      --line: rgba(255,255,255,0.09);
+      --muted: #aeb2bb;
+      --black: #03050a;
+      --dark: #0a0c10;
+      --line: rgba(255,255,255,.11);
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     html {
@@ -31,6 +41,7 @@
     }
 
     body {
+      margin: 0;
       min-height: 100vh;
       overflow-x: hidden;
 
@@ -43,15 +54,20 @@
 
       background:
         radial-gradient(
-          circle at 76% 12%,
-          rgba(11,53,255,0.18),
+          circle at 12% 5%,
+          rgba(11,53,255,.20),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 88% 8%,
+          rgba(203,209,218,.18),
           transparent 28%
         ),
         linear-gradient(
           180deg,
-          #04060a 0%,
-          #080c13 42%,
-          #030509 100%
+          #03050a 0%,
+          #07112f 38%,
+          #03050a 100%
         );
     }
 
@@ -59,918 +75,1298 @@
       content: "";
       position: fixed;
       inset: 0;
+      z-index: -10;
+      pointer-events: none;
 
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,0.018) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,0.018) 1px,
-          transparent 1px
+      background:
+        repeating-radial-gradient(
+          ellipse at center,
+          transparent 0,
+          transparent 26px,
+          rgba(255,255,255,.012) 27px,
+          rgba(255,255,255,.012) 28px
         );
 
-      background-size: 46px 46px;
+      opacity: .65;
+    }
 
-      pointer-events: none;
-      z-index: 0;
+    img {
+      display: block;
+      max-width: 100%;
     }
 
     a {
       color: inherit;
     }
 
-    .page {
-      position: relative;
-      z-index: 1;
+    button,
+    input,
+    a {
+      -webkit-tap-highlight-color: transparent;
+      font: inherit;
     }
 
-    /* ---------------- HEADER ---------------- */
-
-    .topbar {
-      border-bottom: 1px solid var(--line);
-
-      background:
-        rgba(4, 6, 10, 0.94);
-
-      backdrop-filter: blur(12px);
+    button {
+      cursor: pointer;
     }
 
-    .topbar-inner {
-      width: min(1180px, 92%);
-      min-height: 72px;
-
+    .shell {
+      width: min(1180px, calc(100% - 28px));
       margin: 0 auto;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-
-      font-size: 0.82rem;
-      font-weight: 900;
-
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-    }
-
-    .brand-dot {
-      width: 11px;
-      height: 11px;
-
-      border-radius: 50%;
-
-      background: var(--blue);
-
-      box-shadow:
-        0 0 20px
-        rgba(11,53,255,0.95);
-    }
-
-    .top-label {
-      padding: 9px 14px;
-
-      border:
-        1px solid rgba(255,255,255,0.11);
-
-      border-radius: 999px;
-
-      color: #bfc7d1;
-
-      font-size: 0.72rem;
-      font-weight: 900;
-
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    /* ---------------- HERO ---------------- */
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-
-      min-height: 700px;
-
-      display: flex;
-      align-items: center;
-
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero::before {
-      content: "";
-
-      position: absolute;
-      inset: 0;
+    .top-strip {
+      height: 5px;
 
       background:
         linear-gradient(
           90deg,
-          rgba(4,6,10,0.98) 0%,
-          rgba(4,6,10,0.90) 48%,
-          rgba(4,6,10,0.55) 100%
+          var(--blue),
+          var(--silver),
+          var(--blue)
         );
 
-      z-index: 1;
+      box-shadow:
+        0 0 18px rgba(11,53,255,.7),
+        0 0 30px rgba(203,209,218,.4);
     }
 
-    .mountain-back {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
+    /* HEADER */
 
-      height: 340px;
+    .header {
+      padding: 20px 0 8px;
+    }
 
-      opacity: 0.38;
+    .header-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      clip-path:
-        polygon(
-          0 83%,
-          8% 70%,
-          16% 76%,
-          26% 45%,
-          34% 65%,
-          43% 36%,
-          51% 58%,
-          61% 31%,
-          72% 61%,
-          82% 40%,
-          90% 67%,
-          100% 49%,
-          100% 100%,
-          0 100%
-        );
-
-      background:
-        linear-gradient(
-          180deg,
-          #1e2a41 0%,
-          #0b111b 75%
+    .legacy-logo {
+      width: min(680px, 93%);
+      filter:
+        drop-shadow(
+          0 0 22px rgba(11,53,255,.16)
         );
     }
 
-    .mountain-front {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
+    /* HERO */
 
-      height: 250px;
-
-      opacity: 0.86;
-
-      clip-path:
-        polygon(
-          0 73%,
-          10% 55%,
-          18% 70%,
-          29% 43%,
-          37% 66%,
-          49% 49%,
-          60% 71%,
-          70% 46%,
-          80% 69%,
-          89% 52%,
-          100% 72%,
-          100% 100%,
-          0 100%
-        );
-
-      background:
-        linear-gradient(
-          180deg,
-          #101827,
-          #05080d
-        );
+    .hero {
+      padding: 14px 0 40px;
     }
 
-    .hero-inner {
+    .hero-panel {
       position: relative;
-      z-index: 3;
+      isolation: isolate;
+      overflow: hidden;
 
-      width: min(1180px, 92%);
-      margin: 0 auto;
+      min-height: 590px;
 
-      padding:
-        76px 0 110px;
-
-      display: grid;
-
-      grid-template-columns:
-        minmax(0,1.08fr)
-        minmax(320px,0.92fr);
-
-      align-items: center;
-      gap: 45px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-
-      margin-bottom: 20px;
-
-      padding:
-        9px 14px;
+      border-radius: 34px;
 
       border:
-        1px solid rgba(255,255,255,0.12);
-
-      border-radius: 999px;
+        1px solid rgba(255,255,255,.12);
 
       background:
-        rgba(255,255,255,0.035);
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.015)
+        );
 
-      color: #c7ced8;
+      box-shadow:
+        0 35px 100px rgba(0,0,0,.65);
+    }
 
-      font-size: 0.74rem;
-      font-weight: 900;
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -6;
 
-      letter-spacing: 0.14em;
+      background:
+        radial-gradient(
+          circle at 14% 18%,
+          rgba(11,53,255,.21),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 83% 18%,
+          rgba(203,209,218,.16),
+          transparent 30%
+        ),
+        linear-gradient(
+          180deg,
+          transparent 0%,
+          rgba(5,6,8,.10) 45%,
+          rgba(5,6,8,.92) 100%
+        );
+    }
+
+    /* MOUNTAINS */
+
+    .mountains-back {
+      position: absolute;
+      z-index: -5;
+
+      left: -10%;
+      right: -10%;
+      bottom: 0;
+
+      height: 58%;
+
+      opacity: .65;
+
+      background:
+        linear-gradient(
+          145deg,
+          transparent 0 18%,
+          rgba(34,40,48,.70) 18.4% 34%,
+          transparent 34.5%
+        ),
+        linear-gradient(
+          220deg,
+          transparent 0 23%,
+          rgba(28,34,42,.74) 23.5% 40%,
+          transparent 40.5%
+        ),
+        linear-gradient(
+          150deg,
+          transparent 0 37%,
+          rgba(24,30,37,.78) 37.5% 55%,
+          transparent 55.5%
+        );
+    }
+
+    .mountains-mid {
+      position: absolute;
+      z-index: -4;
+
+      left: -15%;
+      right: -15%;
+      bottom: -3%;
+
+      height: 48%;
+
+      opacity: .88;
+
+      background:
+        linear-gradient(
+          145deg,
+          transparent 0 18%,
+          rgba(18,23,29,.98) 18.5% 37%,
+          transparent 37.5%
+        ),
+        linear-gradient(
+          216deg,
+          transparent 0 26%,
+          rgba(16,20,26,.98) 26.5% 48%,
+          transparent 48.5%
+        ),
+        linear-gradient(
+          145deg,
+          transparent 0 48%,
+          rgba(12,16,21,.98) 48.5% 66%,
+          transparent 66.5%
+        );
+    }
+
+    .mountain-glow-blue {
+      position: absolute;
+      z-index: -3;
+
+      left: -50px;
+      bottom: 70px;
+
+      width: 430px;
+      height: 170px;
+
+      background:
+        radial-gradient(
+          ellipse,
+          rgba(11,53,255,.20),
+          transparent 70%
+        );
+
+      filter: blur(20px);
+    }
+
+    .mountain-glow-pink {
+      position: absolute;
+      z-index: -3;
+
+      right: -50px;
+      bottom: 50px;
+
+      width: 430px;
+      height: 170px;
+
+      background:
+        radial-gradient(
+          ellipse,
+          rgba(203,209,218,.18),
+          transparent 70%
+        );
+
+      filter: blur(20px);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1.12fr)
+        minmax(300px, .68fr);
+
+      gap: 30px;
+      align-items: center;
+
+      padding:
+        55px
+        55px
+        125px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      margin-bottom: 15px;
+
+      color: var(--blue-light);
+
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
-    .eyebrow strong {
-      color: var(--blue-light);
+    .kicker::before {
+      content: "";
+
+      width: 31px;
+      height: 3px;
+
+      background: var(--silver);
+
+      box-shadow:
+        0 0 15px rgba(203,209,218,.75);
     }
 
-    .hero h1 {
-      max-width: 780px;
+    h1 {
+      margin: 0;
 
       font-size:
-        clamp(3.9rem, 8vw, 7.5rem);
+        clamp(54px, 8.5vw, 108px);
 
-      line-height: 0.87;
+      line-height: .84;
 
-      font-weight: 1000;
-
-      letter-spacing: -0.065em;
-
+      letter-spacing: -5px;
       text-transform: uppercase;
 
-      margin-bottom: 24px;
+      font-weight: 950;
     }
 
-    .hero h1 span {
+    .road {
+      display: block;
+    }
+
+    .pigeon {
       display: block;
 
-      color: var(--blue-light);
+      margin-top: 10px;
 
-      text-shadow:
-        0 0 30px
-        rgba(11,53,255,0.26);
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--blue-light) 35%,
+          var(--silver) 73%,
+          var(--silver-light)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
     }
 
     .hero-copy {
-      max-width: 660px;
+      max-width: 670px;
 
-      color: #b6c0cc;
+      margin: 24px 0 0;
 
-      font-size:
-        clamp(1rem,1.5vw,1.15rem);
+      color: #c7cad1;
 
-      line-height: 1.65;
-
-      margin-bottom: 30px;
+      font-size: 17px;
+      line-height: 1.67;
     }
 
     .hero-copy strong {
-      color: var(--white);
+      color: white;
     }
 
-    .stats {
+    .hero-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 11px;
+
+      margin-top: 27px;
     }
 
-    .stat {
-      min-width: 145px;
+    .primary-btn,
+    .secondary-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
 
-      padding:
-        16px 18px;
+      min-height: 50px;
 
-      border:
-        1px solid rgba(255,255,255,0.10);
+      padding: 0 21px;
 
-      border-radius: 16px;
+      border-radius: 12px;
 
-      background:
-        rgba(255,255,255,0.035);
-    }
+      text-decoration: none;
 
-    .stat strong {
-      display: block;
-
-      font-size: 1.45rem;
-      font-weight: 1000;
-
-      margin-bottom: 3px;
-    }
-
-    .stat span {
-      color: #8e99a7;
-
-      font-size: 0.69rem;
-      font-weight: 900;
-
-      letter-spacing: 0.09em;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 1px;
       text-transform: uppercase;
     }
 
-    /* ---------------- LOGO ---------------- */
+    .primary-btn {
+      border: 0;
 
-    .logo-stage {
-      position: relative;
+      color: white;
 
-      min-height: 470px;
+      background:
+        linear-gradient(
+          115deg,
+          var(--blue),
+          var(--silver)
+        );
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      box-shadow:
+        0 12px 28px rgba(11,53,255,.17);
     }
 
-    .logo-glow {
+    .secondary-btn {
+      border:
+        1px solid rgba(255,255,255,.14);
+
+      background:
+        rgba(0,0,0,.20);
+    }
+
+    .hero-badge-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: relative;
+
+      min-height: 370px;
+    }
+
+    .hero-badge-area::before {
+      content: "";
       position: absolute;
 
-      width: 350px;
-      height: 350px;
+      width: 340px;
+      height: 340px;
 
       border-radius: 50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(11,53,255,0.32),
-          rgba(11,53,255,0.08) 52%,
-          transparent 72%
+          rgba(11,53,255,.23),
+          rgba(203,209,218,.10) 43%,
+          transparent 69%
         );
 
-      filter: blur(10px);
+      filter: blur(6px);
     }
 
-    .logo-ring-1 {
-      position: absolute;
-
-      width: 430px;
-      height: 430px;
-
-      border-radius: 50%;
-
-      border:
-        1px solid rgba(255,255,255,0.09);
-
-      box-shadow:
-        0 0 70px
-        rgba(11,53,255,0.12);
-    }
-
-    .logo-ring-2 {
-      position: absolute;
-
-      width: 330px;
-      height: 330px;
-
-      border-radius: 50%;
-
-      border:
-        1px solid rgba(11,53,255,0.32);
-    }
-
-    .logo-stage img {
+    .ripken-logo {
       position: relative;
-      z-index: 3;
+      z-index: 2;
 
-      width: min(410px, 92%);
-      max-height: 410px;
-
-      object-fit: contain;
+      width: min(335px, 90%);
 
       filter:
         drop-shadow(
-          0 24px 28px
-          rgba(0,0,0,0.58)
+          0 22px 30px rgba(0,0,0,.62)
         );
     }
 
-    /* ---------------- FLOATING STRIP ---------------- */
+    .stats {
+      position: absolute;
 
-    .impact-wrap {
-      position: relative;
-      z-index: 10;
+      z-index: 4;
 
-      width: min(1080px, 90%);
+      left: 0;
+      right: 0;
+      bottom: 0;
 
-      margin:
-        -50px auto 0;
-    }
-
-    .impact-strip {
       display: grid;
-
       grid-template-columns:
-        repeat(3,1fr);
+        repeat(4, 1fr);
 
-      overflow: hidden;
-
-      border:
-        1px solid rgba(255,255,255,0.11);
-
-      border-radius: 20px;
+      border-top:
+        1px solid rgba(255,255,255,.09);
 
       background:
-        linear-gradient(
-          135deg,
-          rgba(16,23,36,0.98),
-          rgba(6,10,17,0.98)
-        );
+        rgba(3,4,6,.72);
 
-      box-shadow:
-        0 24px 55px
-        rgba(0,0,0,0.44);
+      backdrop-filter: blur(8px);
     }
 
-    .impact-item {
-      padding:
-        23px 28px;
+    .stat {
+      position: relative;
+
+      padding: 20px 15px;
 
       text-align: center;
-
-      border-right:
-        1px solid rgba(255,255,255,0.08);
     }
 
-    .impact-item:last-child {
-      border-right: 0;
+    .stat:not(:last-child)::after {
+      content: "";
+
+      position: absolute;
+
+      top: 25%;
+      right: 0;
+      bottom: 25%;
+
+      width: 1px;
+
+      background:
+        rgba(255,255,255,.08);
     }
 
-    .impact-item strong {
+    .stat strong {
       display: block;
 
-      color: var(--white);
+      margin-bottom: 3px;
 
-      font-size: 1.6rem;
-      font-weight: 1000;
-
-      margin-bottom: 4px;
+      font-size: 23px;
+      font-weight: 950;
     }
 
-    .impact-item span {
-      color: #8f9aa8;
+    .stat span {
+      color: #8f949d;
 
-      font-size: 0.7rem;
+      font-size: 9px;
       font-weight: 900;
-
-      letter-spacing: 0.10em;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
     }
 
-    /* ---------------- SECTIONS ---------------- */
+    /* PLAYERS */
 
-    .section {
-      width: min(1180px, 92%);
-
-      margin: 0 auto;
-
-      padding:
-        90px 0 20px;
+    .players-section {
+      padding: 48px 0;
     }
 
-    .section-header {
+    .section-head {
       text-align: center;
 
-      margin-bottom: 42px;
+      margin-bottom: 28px;
     }
 
-    .section-kicker {
-      color: var(--blue-light);
-
-      font-size: 0.73rem;
-      font-weight: 900;
-
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-
+    .section-label {
       margin-bottom: 9px;
-    }
 
-    .section-header h2 {
-      font-size:
-        clamp(2.4rem,5vw,4.1rem);
+      color: var(--silver);
 
-      letter-spacing: -0.045em;
-
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: 3px;
       text-transform: uppercase;
-
-      margin-bottom: 12px;
     }
 
-    .section-header p {
-      max-width: 650px;
+    .section-head h2 {
+      margin: 0;
 
-      margin: 0 auto;
+      font-size:
+        clamp(34px, 5vw, 58px);
 
-      color: #949fac;
+      line-height: .95;
+      text-transform: uppercase;
+    }
+
+    .section-head p {
+      max-width: 700px;
+
+      margin: 13px auto 0;
+
+      color: #aeb2bb;
 
       line-height: 1.6;
     }
-
-    /* ---------------- PLAYER CARDS ---------------- */
 
     .players-grid {
       display: grid;
 
       grid-template-columns:
-        repeat(3,minmax(0,1fr));
+        repeat(4, 1fr);
 
-      gap: 18px;
+      gap: 14px;
     }
 
     .player-card {
       position: relative;
-
       overflow: hidden;
 
-      min-height: 205px;
+      display: block;
 
-      padding: 25px;
+      min-height: 150px;
+
+      padding: 20px;
+
+      border-radius: 18px;
 
       border:
-        1px solid rgba(255,255,255,0.09);
+        1px solid rgba(255,255,255,.10);
 
-      border-radius: 20px;
+      text-decoration: none;
 
       background:
         linear-gradient(
           145deg,
-          rgba(255,255,255,0.05),
-          rgba(255,255,255,0.015)
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.015)
         );
 
-      color: inherit;
-      text-decoration: none;
-
       transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease,
-        border-color 0.18s ease;
+        transform .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease;
+    }
+
+    .player-card::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      height: 4px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--silver)
+        );
     }
 
     .player-card::after {
       content: "";
 
       position: absolute;
-      inset: 0;
+      right: -55px;
+      bottom: -65px;
+
+      width: 145px;
+      height: 145px;
+
+      border-radius: 50%;
 
       background:
         radial-gradient(
-          circle at 83% 18%,
-          rgba(11,53,255,0.18),
-          transparent 36%
+          circle,
+          rgba(11,53,255,.17),
+          transparent 68%
         );
-
-      pointer-events: none;
     }
 
     .player-card:hover {
-      transform:
-        translateY(-5px);
+      transform: translateY(-5px);
 
       border-color:
-        rgba(65,103,255,0.50);
+        rgba(11,53,255,.5);
 
       box-shadow:
-        0 18px 46px
-        rgba(0,0,0,0.34),
-        0 0 25px
-        rgba(11,53,255,0.08);
+        0 18px 40px rgba(0,0,0,.35);
     }
 
-    .player-card > * {
+    .player-number {
+      color: var(--silver);
+
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: 2px;
+    }
+
+    .player-name {
+      position: relative;
+      z-index: 2;
+
+      margin-top: 8px;
+
+      font-size: 20px;
+      font-weight: 950;
+
+      line-height: 1.12;
+    }
+
+    .player-action {
+      position: absolute;
+      z-index: 3;
+
+      left: 20px;
+      bottom: 17px;
+
+      color: var(--blue-light);
+
+      font-size: 9px;
+      font-weight: 950;
+
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .player-action span {
+      color: var(--silver);
+    }
+
+    /* GENERAL DONATION */
+
+    .general-section {
+      padding: 8px 0 54px;
+    }
+
+    .general-panel {
+      position: relative;
+      overflow: hidden;
+
+      display: grid;
+
+      grid-template-columns:
+        .95fr 1.05fr;
+
+      gap: 34px;
+      align-items: center;
+
+      padding: 38px;
+
+      border-radius: 26px;
+
+      border:
+        1px solid rgba(255,255,255,.11);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(11,53,255,.11),
+          rgba(203,209,218,.10)
+        );
+
+      box-shadow:
+        0 24px 65px rgba(0,0,0,.36);
+    }
+
+    .general-panel::before {
+      content: "";
+
+      position: absolute;
+      left: -80px;
+      bottom: -120px;
+
+      width: 430px;
+      height: 240px;
+
+      opacity: .40;
+
+      background:
+        linear-gradient(
+          145deg,
+          transparent 0 28%,
+          rgba(11,53,255,.22) 28.5% 52%,
+          transparent 52.5%
+        );
+    }
+
+    .general-copy,
+    .general-form {
       position: relative;
       z-index: 2;
     }
 
-    .baseball-number {
-      width: 62px;
-      height: 62px;
+    .general-copy h2 {
+      margin: 6px 0 0;
 
-      display: grid;
-      place-items: center;
+      font-size:
+        clamp(32px, 4.5vw, 54px);
 
-      border-radius: 50%;
+      line-height: .96;
+      text-transform: uppercase;
+    }
 
-      margin-bottom: 18px;
+    .general-copy p {
+      margin: 14px 0 0;
 
-      background:
-        radial-gradient(
-          circle at 35% 28%,
-          #ffffff,
-          #eff1f5 57%,
-          #ccd1d9 100%
-        );
+      color: #c1c5cc;
+
+      line-height: 1.6;
+    }
+
+    .general-form {
+      padding: 23px;
+
+      border-radius: 18px;
 
       border:
-        2px solid white;
+        1px solid rgba(255,255,255,.10);
 
-      color: #0b1018;
+      background:
+        rgba(3,4,6,.55);
 
-      font-size: 1.27rem;
-      font-weight: 1000;
-
-      box-shadow:
-        0 8px 18px
-        rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
     }
 
-    .player-card h3 {
-      font-size: 1.17rem;
-
-      margin-bottom: 7px;
+    .field {
+      margin-bottom: 13px;
     }
 
-    .player-card p {
-      color: #8f9ba8;
+    .field label {
+      display: block;
 
-      font-size: 0.87rem;
+      margin-bottom: 6px;
 
-      line-height: 1.45;
+      color: #c8cbd1;
 
-      max-width: 230px;
+      font-size: 10px;
+      font-weight: 900;
+
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
     }
 
-    .player-arrow {
+    .field input {
+      width: 100%;
+
+      min-height: 47px;
+
+      padding: 0 13px;
+
+      color: white;
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
+      border-radius: 10px;
+
+      outline: none;
+
+      background:
+        rgba(0,0,0,.30);
+    }
+
+    .field input:focus {
+      border-color:
+        rgba(11,53,255,.65);
+    }
+
+    .amount-wrap {
+      position: relative;
+    }
+
+    .dollar {
       position: absolute;
 
-      right: 20px;
-      bottom: 18px;
+      left: 14px;
+      top: 50%;
+
+      transform: translateY(-50%);
 
       color: var(--blue-light);
 
-      font-size: 1.35rem;
-      font-weight: 1000;
+      font-weight: 950;
     }
 
-    /* ---------------- HOW IT WORKS ---------------- */
+    .amount-wrap input {
+      padding-left: 30px;
+    }
+
+    .anon {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      margin:
+        2px 0
+        16px;
+
+      color: #b6bac2;
+
+      font-size: 12px;
+    }
+
+    .anon input {
+      width: 17px;
+      height: 17px;
+    }
+
+    .donate-btn {
+      width: 100%;
+      min-height: 51px;
+
+      border: 0;
+      border-radius: 11px;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          115deg,
+          var(--blue),
+          var(--silver)
+        );
+
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .donate-btn:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    .general-message {
+      display: none;
+
+      margin-top: 12px;
+
+      padding: 11px;
+
+      border-radius: 9px;
+
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .general-message.error {
+      display: block;
+
+      color: #ffdce2;
+
+      background:
+        rgba(255,80,100,.09);
+
+      border:
+        1px solid rgba(255,80,100,.25);
+    }
+
+    .general-message.success {
+      display: block;
+
+      color: #e1fff0;
+
+      background:
+        rgba(70,220,140,.08);
+
+      border:
+        1px solid rgba(70,220,140,.25);
+    }
+
+    /* HOW IT WORKS */
+
+    .how-section {
+      padding: 8px 0 54px;
+    }
 
     .how-grid {
       display: grid;
 
       grid-template-columns:
-        repeat(3,1fr);
+        repeat(3, 1fr);
 
-      gap: 18px;
-
-      margin-bottom: 90px;
+      gap: 14px;
     }
 
     .how-card {
-      padding: 28px;
+      min-height: 195px;
 
-      border:
-        1px solid rgba(255,255,255,0.09);
+      padding: 25px;
 
       border-radius: 20px;
 
+      border:
+        1px solid rgba(255,255,255,.1);
+
       background:
-        rgba(255,255,255,0.025);
+        rgba(255,255,255,.025);
     }
 
-    .step-number {
-      color: var(--blue-light);
+    .how-number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      font-size: 2.15rem;
-      font-weight: 1000;
+      width: 42px;
+      height: 42px;
 
-      margin-bottom: 14px;
+      margin-bottom: 17px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--silver)
+        );
+
+      font-weight: 950;
     }
 
     .how-card h3 {
-      font-size: 1.1rem;
+      margin: 0 0 8px;
 
-      margin-bottom: 9px;
+      font-size: 19px;
     }
 
     .how-card p {
-      color: #909ba8;
+      margin: 0;
 
-      line-height: 1.55;
+      color: #aeb2bb;
 
-      font-size: 0.88rem;
+      font-size: 13px;
+      line-height: 1.6;
     }
 
-    /* ---------------- FOOTER ---------------- */
-
     footer {
-      border-top: 1px solid var(--line);
-
-      padding:
-        34px 20px 46px;
+      padding: 0 0 35px;
 
       text-align: center;
 
-      color: #697583;
+      color: #717680;
 
-      font-size: 0.79rem;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
-    footer strong {
-      color: #9ca7b4;
+    .footer-line {
+      height: 1px;
+
+      margin-bottom: 22px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(11,53,255,.35),
+          rgba(203,209,218,.35),
+          transparent
+        );
     }
 
-    /* ---------------- MOBILE ---------------- */
+    /* TABLET */
 
-    @media (max-width: 900px) {
-
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-inner {
+    @media (max-width: 980px) {
+      .hero-grid {
         grid-template-columns: 1fr;
 
-        text-align: center;
-
-        padding-top: 58px;
+        padding:
+          43px
+          34px
+          122px;
       }
 
-      .hero-copy {
-        margin-left: auto;
-        margin-right: auto;
+      .hero-badge-area {
+        min-height: 250px;
       }
 
-      .stats {
-        justify-content: center;
-      }
-
-      .logo-stage {
-        min-height: 360px;
-      }
-
-      .logo-ring-1 {
-        width: 340px;
-        height: 340px;
-      }
-
-      .logo-ring-2 {
-        width: 265px;
-        height: 265px;
+      .ripken-logo {
+        width: 240px;
       }
 
       .players-grid {
         grid-template-columns:
-          repeat(2,minmax(0,1fr));
+          repeat(3, 1fr);
+      }
+
+      .general-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+      .shell {
+        width:
+          min(
+            100% - 18px,
+            1180px
+          );
+      }
+
+      .header {
+        padding-top: 16px;
+      }
+
+      .hero {
+        padding-top: 6px;
+      }
+
+      .hero-panel {
+        min-height: auto;
+        border-radius: 23px;
+      }
+
+      .hero-grid {
+        padding:
+          29px
+          18px
+          175px;
+
+        gap: 2px;
+      }
+
+      h1 {
+        font-size:
+          clamp(46px, 15vw, 78px);
+
+        letter-spacing: -3px;
+      }
+
+      .hero-copy {
+        font-size: 15px;
+      }
+
+      .hero-buttons {
+        display: grid;
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 8px;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        padding:
+          0
+          10px;
+
+        font-size: 10px;
+      }
+
+      .hero-badge-area {
+        min-height: 195px;
+      }
+
+      .ripken-logo {
+        width: 175px;
+      }
+
+      .mountains-back {
+        height: 42%;
+      }
+
+      .mountains-mid {
+        height: 37%;
+      }
+
+      .stats {
+        grid-template-columns:
+          repeat(4, 1fr);
+      }
+
+      .stat {
+        padding:
+          15px
+          4px;
+      }
+
+      .stat strong {
+        font-size: 18px;
+      }
+
+      .stat span {
+        font-size: 7px;
+        letter-spacing: .7px;
+      }
+
+      /* IMPORTANT:
+         ALWAYS TWO COLUMNS ON MOBILE */
+
+      .players-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 9px;
+      }
+
+      .player-card {
+        min-height: 115px;
+
+        padding:
+          15px
+          13px;
+      }
+
+      .player-number {
+        font-size: 11px;
+      }
+
+      .player-name {
+        margin-top: 5px;
+
+        font-size: 15px;
+      }
+
+      .player-action {
+        left: 13px;
+        bottom: 12px;
+
+        font-size: 7px;
+
+        letter-spacing: .7px;
+      }
+
+      .general-panel {
+        padding:
+          27px
+          18px;
+
+        gap: 22px;
+      }
+
+      .general-form {
+        padding: 17px;
       }
 
       .how-grid {
         grid-template-columns: 1fr;
       }
-
     }
 
-    @media (max-width: 600px) {
-
-      .topbar-inner {
-        width: 94%;
-      }
-
-      .top-label {
-        display: none;
-      }
-
-      .hero-inner {
-        width: 94%;
-
-        padding:
-          44px 0 84px;
-      }
-
-      .hero h1 {
-        font-size:
-          clamp(3.3rem,16vw,5.1rem);
-      }
-
-      .hero-copy {
-        font-size: 0.95rem;
-      }
-
-      .stats {
-        gap: 8px;
-      }
-
-      .stat {
-        min-width: 0;
-        flex: 1 1 30%;
-
-        padding:
-          14px 8px;
-      }
-
-      .stat strong {
-        font-size: 1.15rem;
-      }
-
-      .stat span {
-        font-size: 0.58rem;
-      }
-
-      .logo-stage {
-        min-height: 295px;
-      }
-
-      .logo-ring-1 {
-        width: 280px;
-        height: 280px;
-      }
-
-      .logo-ring-2 {
-        width: 220px;
-        height: 220px;
-      }
-
-      .impact-wrap {
-        width: 94%;
-      }
-
-      .impact-item {
-        padding:
-          18px 8px;
-      }
-
-      .impact-item strong {
-        font-size: 1.25rem;
-      }
-
-      .impact-item span {
-        font-size: 0.56rem;
-      }
-
-      .section {
-        width: 94%;
-
-        padding-top: 68px;
-      }
+    @media (max-width: 380px) {
+      /*
+        Do NOT switch the players
+        to one column.
+        Keep 2 x 6.
+      */
 
       .players-grid {
-        gap: 11px;
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 7px;
       }
 
       .player-card {
-        min-height: 185px;
+        min-height: 108px;
 
         padding:
-          18px 15px;
+          13px
+          10px;
       }
 
-      .baseball-number {
-        width: 52px;
-        height: 52px;
-
-        font-size: 1.05rem;
+      .player-name {
+        font-size: 14px;
       }
 
-      .player-card h3 {
-        font-size: 0.98rem;
-      }
+      .player-action {
+        left: 10px;
 
-      .player-card p {
-        font-size: 0.75rem;
+        font-size: 6.5px;
       }
-
-      .player-arrow {
-        right: 14px;
-        bottom: 13px;
-      }
-
     }
+  
+    /* WBT: keep Pigeon Forge logo beside hero text/name */
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.12fr) minmax(190px, .55fr) !important;
+      align-items: center !important;
+    }
+
+    .hero-badge-area {
+      min-height: 0 !important;
+      align-self: center;
+    }
+
+    .ripken-logo {
+      width: min(285px, 100%) !important;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(160px, .42fr) !important;
+        gap: 18px !important;
+      }
+
+      .hero-badge-area {
+        min-height: 0 !important;
+      }
+
+      .ripken-logo {
+        width: min(220px, 100%) !important;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) 115px !important;
+        gap: 8px !important;
+        align-items: center !important;
+      }
+
+      .hero-badge-area {
+        min-height: 0 !important;
+      }
+
+      .ripken-logo {
+        width: 112px !important;
+        max-width: 112px !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) 92px !important;
+      }
+
+      .ripken-logo {
+        width: 90px !important;
+        max-width: 90px !important;
+      }
+    }
+
   </style>
 </head>
 
+
 <body>
 
-<div class="page">
+  <div class="top-strip"></div>
 
-  <header class="topbar">
 
-    <div class="topbar-inner">
+  <header class="header">
 
-      <div class="brand">
-        <span class="brand-dot"></span>
-        West Boynton Travel
-      </div>
+    <div class="shell">
 
-      <div class="top-label">
-        Road to Pigeon Forge
+      <div class="header-inner">
+
+        <img
+          class="legacy-logo"
+          src="/wbt-logo.png"
+          alt="West Boynton Travel Cobras"
+        />
+
       </div>
 
     </div>
@@ -978,399 +1374,402 @@
   </header>
 
 
-  <section class="hero">
-
-    <div class="mountain-back"></div>
-    <div class="mountain-front"></div>
-
-    <div class="hero-inner">
-
-      <div>
-
-        <div class="eyebrow">
-          <strong>WBT Cobras</strong>
-          •
-          Pigeon Forge, Tennessee
-        </div>
-
-        <h1>
-          Road To
-          <span>Pigeon Forge</span>
-        </h1>
-
-        <p class="hero-copy">
-          Help the
-          <strong>West Boynton Travel Cobras</strong>
-          make their trip to Pigeon Forge.
-          Choose a player below and support their journey
-          by selecting one or more baseballs from their
-          personal fundraiser.
-        </p>
-
-
-        <div class="stats">
-
-          <div class="stat">
-            <strong>11</strong>
-            <span>Players</span>
-          </div>
-
-          <div class="stat">
-            <strong>60</strong>
-            <span>Baseballs Each</span>
-          </div>
-
-          <div class="stat">
-            <strong>$1,830</strong>
-            <span>Goal Per Player</span>
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="logo-stage">
-
-        <div class="logo-glow"></div>
-        <div class="logo-ring-1"></div>
-        <div class="logo-ring-2"></div>
-
-        <img
-          src="wbt-logo.png"
-          alt="West Boynton Travel"
-        />
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <div class="impact-wrap">
-
-    <div class="impact-strip">
-
-      <div class="impact-item">
-        <strong>$1–$60</strong>
-        <span>Baseball Values</span>
-      </div>
-
-      <div class="impact-item">
-        <strong>60</strong>
-        <span>Ways to Support</span>
-      </div>
-
-      <div class="impact-item">
-        <strong>Pigeon Forge</strong>
-        <span>Destination</span>
-      </div>
-
-    </div>
-
-  </div>
-
 
   <main>
 
-    <section class="section">
 
-      <div class="section-header">
+    <!-- HERO -->
 
-        <div class="section-kicker">
-          Choose Your Player
+    <section class="hero">
+
+      <div class="shell">
+
+        <div class="hero-panel">
+
+
+          <div class="mountains-back"></div>
+
+          <div class="mountains-mid"></div>
+
+          <div class="mountain-glow-blue"></div>
+
+          <div class="mountain-glow-pink"></div>
+
+
+          <div class="hero-grid">
+
+            <div>
+
+              <div class="kicker">
+                West Boynton Travel Cobras
+              </div>
+
+
+              <h1>
+
+                <span class="road">
+                  Road To
+                </span>
+
+                <span class="pigeon">
+                  Pigeon Forge
+                </span>
+
+              </h1>
+
+
+              <p class="hero-copy">
+
+                Help West Boynton Travel
+                make the journey to
+                <strong>
+                  Pigeon Forge, Tennessee
+                </strong>
+                for an unforgettable baseball
+                experience at the
+                <strong>
+                  Ripken Experience.
+                </strong>
+
+              </p>
+
+
+              <div class="hero-buttons">
+
+                <a
+                  class="primary-btn"
+                  href="#players"
+                >
+                  Choose A Player
+                </a>
+
+                <a
+                  class="secondary-btn"
+                  href="#how-it-works"
+                >
+                  How It Works
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <div class="hero-badge-area">
+
+              <img
+                class="ripken-logo"
+                src="/ripken-pigeon-forge.webp"
+                alt="Ripken Experience Pigeon Forge"
+              />
+
+            </div>
+
+          </div>
+
+
+          <div class="stats">
+
+            <div class="stat">
+              <strong>11</strong>
+              <span>WBT Players</span>
+            </div>
+
+            <div class="stat">
+              <strong>60</strong>
+              <span>Balls Each</span>
+            </div>
+
+            <div class="stat">
+              <strong>$1–$60</strong>
+              <span>Ball Values</span>
+            </div>
+
+            <div class="stat">
+              <strong>TN</strong>
+              <span>Pigeon Forge</span>
+            </div>
+
+          </div>
+
         </div>
-
-        <h2>
-          Support the Cobras
-        </h2>
-
-        <p>
-          Select a player below to visit their
-          individual Road to Pigeon Forge fundraiser.
-        </p>
-
-      </div>
-
-
-      <div class="players-grid">
-
-        <a
-          class="player-card"
-          href="fundraiser.html?player=caden-thornton"
-        >
-          <div class="baseball-number">2</div>
-
-          <h3>Caden Thornton</h3>
-
-          <p>
-            Support Caden's Road to Pigeon Forge.
-          </p>
-
-          <span class="player-arrow">→</span>
-        </a>
-
-
-        <a
-          class="player-card"
-          href="fundraiser.html?player=ethan-novak"
-        >
-          <div class="baseball-number">3</div>
-
-          <h3>Ethan Novak</h3>
-
-          <p>
-            Support Ethan's Road to Pigeon Forge.
-          </p>
-
-          <span class="player-arrow">→</span>
-        </a>
-
-
-        <a
-          class="player-card"
-          href="fundraiser.html?player=connor-criss"
-        >
-          <div class="baseball-number">4</div>
-
-          <h3>Connor Criss</h3>
-
-          <p>
-            Support Connor's Road to Pigeon Forge.
-          </p>
-
-          <span class="player-arrow">→</span>
-        </a>
-
-
-        <a
-          class="player-card"
-          href="fundraiser.html?player=khristian-ramos"
-        >
-          <div class="baseball-number">5</div>
-
-          <h3>Khristian Ramos</h3>
-
-          <p>
-            Support Khristian's Road to Pigeon Forge.
-          </p>
-
-          <span class="player-arrow">→</span>
-        </a>
-
-
-        <a
-          class="player-card"
-          href="fundraiser.html?player=william-easterbrook"
-        >
-          <div class="baseball-number">7</div>
-
-          <h3>William Easterbrook</h3>
-
-          <p>
-            Support William's Road to Pigeon Forge.
-          </p>
-
-          <span class="player-arrow">→</span>
-        </a>
-
-
-        <a
-          class="player-card"
-          href="fundraiser.html?player=kua-duchene"
-        >
-          <div class="baseball-number">11</div>
-
-          <h3>Kua Duchene</h3>
-
-          <p>
-            Support Kua's Road to Pigeon Forge.
-          </p>
-
-          <span class="player-arrow">→</span>
-        </a>
-
-
-        <a
-          class="player-card"
-          href="fundraiser.html?player=roberto-alberto"
-        >
-          <div class="baseball-number">13</div>
-
-          <h3>Roberto Alberto</h3>
-
-          <p>
-            Support Roberto's Road to Pigeon Forge.
-          </p>
-
-          <span class="player-arrow">→</span>
-        </a>
-
-
-        <a
-          class="player-card"
-          href="fundraiser.html?player=adrian-guerra"
-        >
-          <div class="baseball-number">18</div>
-
-          <h3>Adrian Guerra</h3>
-
-          <p>
-            Support Adrian's Road to Pigeon Forge.
-          </p>
-
-          <span class="player-arrow">→</span>
-        </a>
-
-
-        <a
-          class="player-card"
-          href="fundraiser.html?player=jaxon-graham"
-        >
-          <div class="baseball-number">24</div>
-
-          <h3>Jaxon Graham</h3>
-
-          <p>
-            Support Jaxon's Road to Pigeon Forge.
-          </p>
-
-          <span class="player-arrow">→</span>
-        </a>
-
-
-        <a
-          class="player-card"
-          href="fundraiser.html?player=mason-haygood"
-        >
-          <div class="baseball-number">33</div>
-
-          <h3>Mason Haygood</h3>
-
-          <p>
-            Support Mason's Road to Pigeon Forge.
-          </p>
-
-          <span class="player-arrow">→</span>
-        </a>
-
-
-        <a
-          class="player-card"
-          href="fundraiser.html?player=ezra-espinal"
-        >
-          <div class="baseball-number">44</div>
-
-          <h3>Ezra Espinal</h3>
-
-          <p>
-            Support Ezra's Road to Pigeon Forge.
-          </p>
-
-          <span class="player-arrow">→</span>
-        </a>
 
       </div>
 
     </section>
 
 
-    <section class="section">
 
-      <div class="section-header">
+    <!-- PLAYERS -->
 
-        <div class="section-kicker">
-          Simple Fundraising
-        </div>
+    <section
+      class="players-section"
+      id="players"
+    >
 
-        <h2>
-          How It Works
-        </h2>
+      <div class="shell">
 
-        <p>
-          Every player has 60 baseballs available,
-          numbered from 1 through 60.
-        </p>
+        <div class="section-head">
 
-      </div>
-
-
-      <div class="how-grid">
-
-        <div class="how-card">
-
-          <div class="step-number">
-            01
+          <div class="section-label">
+            Choose Your Player
           </div>
 
-          <h3>
-            Choose a Player
-          </h3>
+          <h2>
+            Support The Journey
+          </h2>
 
           <p>
-            Pick the West Boynton Travel player
-            you want to support.
+            Select a West Boynton Travel
+            player to view their available
+            baseballs and support their
+            Road to Pigeon Forge.
           </p>
 
         </div>
 
 
-        <div class="how-card">
+        <div class="players-grid">
 
-          <div class="step-number">
-            02
-          </div>
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=caden-thornton"
+          >
+            <div class="player-number">#2</div>
+            <div class="player-name">Caden Thornton</div>
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
 
-          <h3>
-            Select Baseballs
-          </h3>
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=ethan-novak"
+          >
+            <div class="player-number">#3</div>
+            <div class="player-name">Ethan Novak</div>
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
 
-          <p>
-            Each baseball number equals its donation
-            amount. Baseball #20 is a $20 donation.
-          </p>
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=connor-criss"
+          >
+            <div class="player-number">#4</div>
+            <div class="player-name">Connor Criss</div>
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
 
-        </div>
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=khristian-ramos"
+          >
+            <div class="player-number">#5</div>
+            <div class="player-name">Khristian Ramos</div>
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
 
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=william-easterbrook"
+          >
+            <div class="player-number">#7</div>
+            <div class="player-name">William Easterbrook</div>
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
 
-        <div class="how-card">
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=kua-duchene"
+          >
+            <div class="player-number">#11</div>
+            <div class="player-name">Kua Duchene</div>
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
 
-          <div class="step-number">
-            03
-          </div>
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=roberto-alberto"
+          >
+            <div class="player-number">#13</div>
+            <div class="player-name">Roberto Alberto</div>
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
 
-          <h3>
-            Help Them Reach Pigeon Forge
-          </h3>
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=adrian-guerra"
+          >
+            <div class="player-number">#18</div>
+            <div class="player-name">Adrian Guerra</div>
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
 
-          <p>
-            Complete your secure checkout and help
-            that player move closer to their goal.
-          </p>
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=jaxon-graham"
+          >
+            <div class="player-number">#24</div>
+            <div class="player-name">Jaxon Graham</div>
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=mason-haygood"
+          >
+            <div class="player-number">#33</div>
+            <div class="player-name">Mason Haygood</div>
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=ezra-espinal"
+          >
+            <div class="player-number">#44</div>
+            <div class="player-name">Ezra Espinal</div>
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
 
         </div>
 
       </div>
 
     </section>
+
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="how-section" id="how-it-works">
+
+      <div class="shell">
+
+        <div class="section-head">
+
+          <div class="section-label">
+            Baseball Fundraiser
+          </div>
+
+          <h2>
+            How It Works
+          </h2>
+
+        </div>
+
+
+        <div class="how-grid">
+
+
+          <div class="how-card">
+
+            <div class="how-number">
+              1
+            </div>
+
+            <h3>
+              Choose A Player
+            </h3>
+
+            <p>
+              Select the West Boynton Travel
+              player you would like to support.
+            </p>
+
+          </div>
+
+
+          <div class="how-card">
+
+            <div class="how-number">
+              2
+            </div>
+
+            <h3>
+              Pick Baseballs
+            </h3>
+
+            <p>
+              Every player has baseballs
+              numbered 1 through 60.
+              The number equals the donation
+              amount.
+            </p>
+
+          </div>
+
+
+          <div class="how-card">
+
+            <div class="how-number">
+              3
+            </div>
+
+            <h3>
+              Support The Journey
+            </h3>
+
+            <p>
+              Complete your secure checkout
+              and help send South Florida
+              Legacy to Pigeon Forge.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
 
   </main>
 
 
+
   <footer>
 
-    <strong>
+    <div class="shell">
+
+      <div class="footer-line"></div>
+
       West Boynton Travel Cobras
-    </strong>
+      &nbsp;•&nbsp;
+      Road To Pigeon Forge
+      &nbsp;•&nbsp;
+      2026
 
-    <br />
-
-    Road to Pigeon Forge Fundraiser
+    </div>
 
   </footer>
 
-</div>
+
+
+
+
 
 </body>
 </html>
