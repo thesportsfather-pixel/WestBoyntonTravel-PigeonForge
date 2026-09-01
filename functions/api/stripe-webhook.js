@@ -7,11 +7,8 @@ function json(data, status = 200) {
     {
       status,
       headers: {
-        "content-type":
-          "application/json; charset=utf-8",
-
-        "cache-control":
-          "no-store"
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store"
       }
     }
   );
@@ -23,37 +20,23 @@ async function verifyStripeSignature(
   signature,
   secret
 ) {
-
-  if (
-    !signature ||
-    !secret
-  ) {
+  if (!signature || !secret) {
     return false;
   }
 
+  const parts = signature.split(",");
 
-  const parts =
-    signature.split(",");
+  const timestampPart = parts.find(
+    part => part.startsWith("t=")
+  );
 
-
-  const timestampPart =
-    parts.find(
-      part =>
-        part.startsWith("t=")
+  const signatureParts = parts
+    .filter(
+      part => part.startsWith("v1=")
+    )
+    .map(
+      part => part.slice(3)
     );
-
-
-  const signatureParts =
-    parts
-      .filter(
-        part =>
-          part.startsWith("v1=")
-      )
-      .map(
-        part =>
-          part.slice(3)
-      );
-
 
   if (
     !timestampPart ||
@@ -62,18 +45,14 @@ async function verifyStripeSignature(
     return false;
   }
 
-
   const timestamp =
     timestampPart.slice(2);
-
 
   const signedPayload =
     `${timestamp}.${payload}`;
 
-
   const encoder =
     new TextEncoder();
-
 
   const key =
     await crypto.subtle.importKey(
@@ -87,7 +66,6 @@ async function verifyStripeSignature(
       ["sign"]
     );
 
-
   const signatureBuffer =
     await crypto.subtle.sign(
       "HMAC",
@@ -96,7 +74,6 @@ async function verifyStripeSignature(
         signedPayload
       )
     );
-
 
   const generatedSignature =
     [...new Uint8Array(
@@ -110,11 +87,9 @@ async function verifyStripeSignature(
       )
       .join("");
 
-
   return signatureParts.includes(
     generatedSignature
   );
-
 }
 
 
@@ -123,7 +98,6 @@ async function supabaseRequest(
   path,
   options = {}
 ) {
-
   const response =
     await fetch(
       `${env.SUPABASE_URL}/rest/v1/${path}`,
@@ -149,26 +123,18 @@ async function supabaseRequest(
       }
     );
 
-
   const text =
     await response.text();
 
-
-  if (
-    !response.ok
-  ) {
-
+  if (!response.ok) {
     throw new Error(
       `Supabase ${response.status}: ${text}`
     );
-
   }
-
 
   return text
     ? JSON.parse(text)
     : null;
-
 }
 
 
@@ -176,7 +142,6 @@ export async function onRequestPost({
   request,
   env
 }) {
-
   try {
 
     // =====================================
@@ -188,7 +153,6 @@ export async function onRequestPost({
       !env.SUPABASE_SERVICE_ROLE_KEY ||
       !env.STRIPE_WEBHOOK_SECRET
     ) {
-
       return json(
         {
           success: false,
@@ -197,7 +161,6 @@ export async function onRequestPost({
         },
         500
       );
-
     }
 
 
@@ -208,12 +171,10 @@ export async function onRequestPost({
     const payload =
       await request.text();
 
-
     const stripeSignature =
       request.headers.get(
         "stripe-signature"
       );
-
 
     const validSignature =
       await verifyStripeSignature(
@@ -222,11 +183,7 @@ export async function onRequestPost({
         env.STRIPE_WEBHOOK_SECRET
       );
 
-
-    if (
-      !validSignature
-    ) {
-
+    if (!validSignature) {
       return json(
         {
           success: false,
@@ -235,14 +192,11 @@ export async function onRequestPost({
         },
         400
       );
-
     }
 
 
     const event =
-      JSON.parse(
-        payload
-      );
+      JSON.parse(payload);
 
 
     // =====================================
@@ -253,30 +207,23 @@ export async function onRequestPost({
       event.type !==
       "checkout.session.completed"
     ) {
-
       return json({
         success: true,
         ignored: true,
         event_type:
           event.type
       });
-
     }
 
 
     const session =
       event.data?.object;
 
-
-    if (
-      !session
-    ) {
-
+    if (!session) {
       return json({
         success: true,
         ignored: true
       });
-
     }
 
 
@@ -288,14 +235,12 @@ export async function onRequestPost({
       session.payment_status !==
       "paid"
     ) {
-
       return json({
         success: true,
         ignored: true,
         reason:
           "Checkout not paid."
       });
-
     }
 
 
@@ -311,14 +256,12 @@ export async function onRequestPost({
       metadata.team_key !==
       TEAM_KEY
     ) {
-
       return json({
         success: true,
         ignored: true,
         reason:
           "Different team."
       });
-
     }
 
 
@@ -389,14 +332,10 @@ export async function onRequestPost({
       );
 
 
-    if (
-      !playerId
-    ) {
-
+    if (!playerId) {
       throw new Error(
         "Missing player_id metadata."
       );
-
     }
 
 
@@ -411,8 +350,7 @@ export async function onRequestPost({
           session.id
         )}&select=id&limit=1`,
         {
-          method:
-            "GET"
+          method: "GET"
         }
       );
 
@@ -423,12 +361,10 @@ export async function onRequestPost({
       ) &&
       existingOrders.length
     ) {
-
       return json({
         success: true,
         already_processed: true
       });
-
     }
 
 
@@ -440,7 +376,6 @@ export async function onRequestPost({
       donationType ===
       "baseballs"
     ) {
-
       const baseballs =
         String(
           metadata.baseballs ||
@@ -463,14 +398,10 @@ export async function onRequestPost({
           );
 
 
-      if (
-        !baseballs.length
-      ) {
-
+      if (!baseballs.length) {
         throw new Error(
           "No valid baseballs found in Stripe metadata."
         );
-
       }
 
 
@@ -481,7 +412,6 @@ export async function onRequestPost({
       for (
         const ballNumber of baseballs
       ) {
-
         await supabaseRequest(
           env,
           `baseballs?team_id=eq.${encodeURIComponent(
@@ -516,7 +446,6 @@ export async function onRequestPost({
               })
           }
         );
-
       }
 
 
@@ -560,8 +489,10 @@ export async function onRequestPost({
               anonymous:
                 anonymous,
 
+              // IMPORTANT FIX:
+              // Supabase column is an array.
               baseballs:
-                baseballs.join(","),
+                baseballs,
 
               player_slug:
                 playerSlug,
@@ -582,7 +513,6 @@ export async function onRequestPost({
           "baseballs",
         baseballs
       });
-
     }
 
 
@@ -594,7 +524,6 @@ export async function onRequestPost({
       donationType ===
       "general"
     ) {
-
       await supabaseRequest(
         env,
         "orders",
@@ -649,7 +578,6 @@ export async function onRequestPost({
         donation_type:
           "general"
       });
-
     }
 
 
@@ -664,9 +592,8 @@ export async function onRequestPost({
         "Unknown donation type."
     });
 
-  } catch (
-    error
-  ) {
+
+  } catch (error) {
 
     console.error(
       "West Boynton Stripe webhook error:",
@@ -686,7 +613,5 @@ export async function onRequestPost({
       },
       500
     );
-
   }
-
 }
