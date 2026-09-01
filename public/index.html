@@ -2,28 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   />
 
   <title>
-    West Boynton Travel | Pigeon Forge Fundraiser
+    West Boynton Travel | Road to Pigeon Forge
   </title>
 
-  <meta name="theme-color" content="#03050a" />
+  <meta
+    name="description"
+    content="Support West Boynton Travel Cobras on the Road to Pigeon Forge and the Ripken Experience in Tennessee."
+  />
+
+  <meta name="theme-color" content="#050608" />
 
   <style>
     :root {
       --blue: #0b35ff;
       --blue-light: #7f98ff;
-      --silver: #cbd1da;
+      --pink: #cbd1da;
+      --pink-light: #f3f5f8;
       --white: #ffffff;
-      --black: #03050a;
-      --dark: #080d15;
-      --muted: #aeb3bd;
-      --line: rgba(255,255,255,.10);
-      --red-stitch: #f47a7a;
+      --muted: #aeb2bb;
+      --black: #050608;
+      --dark: #0a0c10;
+      --line: rgba(255,255,255,.11);
     }
 
     * {
@@ -38,24 +44,30 @@
       margin: 0;
       min-height: 100vh;
       overflow-x: hidden;
-      font-family: Arial, Helvetica, sans-serif;
-      color: white;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: var(--white);
+
       background:
         radial-gradient(
-          circle at 10% 4%,
-          rgba(11,53,255,.18),
+          circle at 12% 5%,
+          rgba(11,53,255,.20),
           transparent 28%
         ),
         radial-gradient(
           circle at 88% 8%,
-          rgba(203,209,218,.16),
+          rgba(203,209,218,.18),
           transparent 28%
         ),
         linear-gradient(
           180deg,
-          #03050a 0%,
-          #07112f 45%,
-          #03050a 100%
+          #050608 0%,
+          #0a0d11 38%,
+          #06070a 100%
         );
     }
 
@@ -63,16 +75,19 @@
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -20;
+      z-index: -10;
       pointer-events: none;
+
       background:
         repeating-radial-gradient(
           ellipse at center,
           transparent 0,
-          transparent 29px,
-          rgba(255,255,255,.012) 30px,
-          rgba(255,255,255,.012) 31px
+          transparent 26px,
+          rgba(255,255,255,.012) 27px,
+          rgba(255,255,255,.012) 28px
         );
+
+      opacity: .65;
     }
 
     img {
@@ -80,8 +95,14 @@
       max-width: 100%;
     }
 
+    a {
+      color: inherit;
+    }
+
     button,
-    input {
+    input,
+    a {
+      -webkit-tap-highlight-color: transparent;
       font: inherit;
     }
 
@@ -89,566 +110,727 @@
       cursor: pointer;
     }
 
+    .shell {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+    }
+
     .top-strip {
       height: 5px;
+
       background:
         linear-gradient(
           90deg,
           var(--blue),
-          var(--silver),
+          var(--pink),
           var(--blue)
         );
+
       box-shadow:
-        0 0 18px rgba(11,53,255,.55),
-        0 0 28px rgba(203,209,218,.30);
+        0 0 18px rgba(11,53,255,.7),
+        0 0 30px rgba(203,209,218,.4);
     }
 
-    .shell {
-      width: min(1150px, calc(100% - 24px));
-      margin: 0 auto;
-    }
+    /* HEADER */
 
     .header {
-      padding: 18px 0 4px;
+      padding: 20px 0 8px;
     }
 
     .header-inner {
       display: flex;
       justify-content: center;
+      align-items: center;
     }
 
     .legacy-logo {
-      width: min(620px, 92%);
+      width: min(680px, 93%);
+      filter:
+        drop-shadow(
+          0 0 22px rgba(11,53,255,.16)
+        );
     }
+
+    /* HERO */
 
     .hero {
-      padding: 10px 0 24px;
+      padding: 14px 0 40px;
     }
 
-    .hero-card {
+    .hero-panel {
       position: relative;
-      overflow: hidden;
       isolation: isolate;
-      min-height: 420px;
-      padding: 42px 40px 120px;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,.11);
+      overflow: hidden;
+
+      min-height: 590px;
+
+      border-radius: 34px;
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
       background:
         linear-gradient(
           145deg,
-          rgba(255,255,255,.05),
+          rgba(255,255,255,.055),
           rgba(255,255,255,.015)
         );
+
       box-shadow:
-        0 30px 80px rgba(0,0,0,.55);
+        0 35px 100px rgba(0,0,0,.65);
     }
 
-    .hero-card::before {
+    .hero-panel::before {
       content: "";
       position: absolute;
       inset: 0;
-      z-index: -7;
+      z-index: -6;
+
       background:
         radial-gradient(
-          circle at 15% 20%,
-          rgba(11,53,255,.18),
-          transparent 30%
+          circle at 14% 18%,
+          rgba(11,53,255,.21),
+          transparent 32%
         ),
         radial-gradient(
-          circle at 85% 20%,
-          rgba(203,209,218,.14),
-          transparent 28%
+          circle at 83% 18%,
+          rgba(203,209,218,.16),
+          transparent 30%
+        ),
+        linear-gradient(
+          180deg,
+          transparent 0%,
+          rgba(5,6,8,.10) 45%,
+          rgba(5,6,8,.92) 100%
         );
     }
 
+    /* MOUNTAINS */
+
     .mountains-back {
       position: absolute;
-      z-index: -6;
-      left: -12%;
-      right: -12%;
+      z-index: -5;
+
+      left: -10%;
+      right: -10%;
       bottom: 0;
-      height: 55%;
-      opacity: .62;
+
+      height: 58%;
+
+      opacity: .65;
+
       background:
         linear-gradient(
           145deg,
           transparent 0 18%,
-          rgba(31,37,45,.75) 18.5% 36%,
-          transparent 36.5%
+          rgba(34,40,48,.70) 18.4% 34%,
+          transparent 34.5%
         ),
         linear-gradient(
           220deg,
-          transparent 0 24%,
-          rgba(26,31,38,.78) 24.5% 43%,
-          transparent 43.5%
+          transparent 0 23%,
+          rgba(28,34,42,.74) 23.5% 40%,
+          transparent 40.5%
         ),
         linear-gradient(
           150deg,
-          transparent 0 45%,
-          rgba(21,26,33,.84) 45.5% 64%,
-          transparent 64.5%
+          transparent 0 37%,
+          rgba(24,30,37,.78) 37.5% 55%,
+          transparent 55.5%
         );
     }
 
-    .mountains-front {
+    .mountains-mid {
       position: absolute;
-      z-index: -5;
+      z-index: -4;
+
       left: -15%;
       right: -15%;
-      bottom: -4%;
-      height: 44%;
+      bottom: -3%;
+
+      height: 48%;
+
+      opacity: .88;
+
       background:
         linear-gradient(
           145deg,
-          transparent 0 19%,
-          rgba(13,17,22,.98) 19.5% 39%,
-          transparent 39.5%
+          transparent 0 18%,
+          rgba(18,23,29,.98) 18.5% 37%,
+          transparent 37.5%
         ),
         linear-gradient(
-          214deg,
-          transparent 0 29%,
-          rgba(10,14,19,.98) 29.5% 50%,
-          transparent 50.5%
+          216deg,
+          transparent 0 26%,
+          rgba(16,20,26,.98) 26.5% 48%,
+          transparent 48.5%
         ),
         linear-gradient(
-          147deg,
-          transparent 0 52%,
-          rgba(8,11,15,.98) 52.5% 69%,
-          transparent 69.5%
+          145deg,
+          transparent 0 48%,
+          rgba(12,16,21,.98) 48.5% 66%,
+          transparent 66.5%
         );
     }
 
+    .mountain-glow-blue {
+      position: absolute;
+      z-index: -3;
+
+      left: -50px;
+      bottom: 70px;
+
+      width: 430px;
+      height: 170px;
+
+      background:
+        radial-gradient(
+          ellipse,
+          rgba(11,53,255,.20),
+          transparent 70%
+        );
+
+      filter: blur(20px);
+    }
+
+    .mountain-glow-pink {
+      position: absolute;
+      z-index: -3;
+
+      right: -50px;
+      bottom: 50px;
+
+      width: 430px;
+      height: 170px;
+
+      background:
+        radial-gradient(
+          ellipse,
+          rgba(203,209,218,.18),
+          transparent 70%
+        );
+
+      filter: blur(20px);
+    }
+
     .hero-grid {
+      position: relative;
+      z-index: 2;
+
       display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 28px;
+      grid-template-columns:
+        minmax(0, 1.12fr)
+        minmax(300px, .68fr);
+
+      gap: 30px;
       align-items: center;
+
+      padding:
+        55px
+        55px
+        125px;
     }
 
-    .eyebrow {
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      margin-bottom: 15px;
+
       color: var(--blue-light);
-      font-size: 10px;
+
+      font-size: 11px;
       font-weight: 950;
-      letter-spacing: 2.7px;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
-    .player-name {
-      margin: 8px 0 0;
-      font-size: clamp(42px, 7vw, 82px);
-      line-height: .9;
-      letter-spacing: -3px;
+    .kicker::before {
+      content: "";
+
+      width: 31px;
+      height: 3px;
+
+      background: var(--pink);
+
+      box-shadow:
+        0 0 15px rgba(203,209,218,.75);
+    }
+
+    h1 {
+      margin: 0;
+
+      font-size:
+        clamp(54px, 8.5vw, 108px);
+
+      line-height: .84;
+
+      letter-spacing: -5px;
       text-transform: uppercase;
+
       font-weight: 950;
     }
 
-    .player-number {
+    .road {
+      display: block;
+    }
+
+    .pigeon {
+      display: block;
+
       margin-top: 10px;
-      color: var(--silver);
-      font-size: 22px;
-      font-weight: 950;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--blue-light) 35%,
+          var(--pink) 73%,
+          var(--pink-light)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
     }
 
     .hero-copy {
-      max-width: 650px;
-      margin: 18px 0 0;
-      color: #c4c8cf;
-      font-size: 15px;
-      line-height: 1.65;
+      max-width: 670px;
+
+      margin: 24px 0 0;
+
+      color: #c7cad1;
+
+      font-size: 17px;
+      line-height: 1.67;
     }
 
     .hero-copy strong {
       color: white;
     }
 
-    .ripken-wrap {
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+
+      margin-top: 27px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      min-height: 50px;
+
+      padding: 0 21px;
+
+      border-radius: 12px;
+
+      text-decoration: none;
+
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .primary-btn {
+      border: 0;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          115deg,
+          var(--blue),
+          var(--pink)
+        );
+
+      box-shadow:
+        0 12px 28px rgba(11,53,255,.17);
+    }
+
+    .secondary-btn {
+      border:
+        1px solid rgba(255,255,255,.14);
+
+      background:
+        rgba(0,0,0,.20);
+    }
+
+    .hero-badge-area {
       display: flex;
       justify-content: center;
       align-items: center;
+
+      position: relative;
+
+      min-height: 370px;
+    }
+
+    .hero-badge-area::before {
+      content: "";
+      position: absolute;
+
+      width: 340px;
+      height: 340px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(11,53,255,.23),
+          rgba(203,209,218,.10) 43%,
+          transparent 69%
+        );
+
+      filter: blur(6px);
     }
 
     .ripken-logo {
-      width: min(240px, 90%);
+      position: relative;
+      z-index: 2;
+
+      width: min(335px, 90%);
+
       filter:
         drop-shadow(
-          0 18px 28px rgba(0,0,0,.55)
+          0 22px 30px rgba(0,0,0,.62)
         );
     }
 
-    .hero-bottom {
+    .stats {
       position: absolute;
+
+      z-index: 4;
+
       left: 0;
       right: 0;
       bottom: 0;
+
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(2,3,5,.74);
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      border-top:
+        1px solid rgba(255,255,255,.09);
+
+      background:
+        rgba(3,4,6,.72);
+
       backdrop-filter: blur(8px);
     }
 
-    .hero-stat {
-      padding: 18px 10px;
+    .stat {
+      position: relative;
+
+      padding: 20px 15px;
+
       text-align: center;
     }
 
-    .hero-stat strong {
+    .stat:not(:last-child)::after {
+      content: "";
+
+      position: absolute;
+
+      top: 25%;
+      right: 0;
+      bottom: 25%;
+
+      width: 1px;
+
+      background:
+        rgba(255,255,255,.08);
+    }
+
+    .stat strong {
       display: block;
+
       margin-bottom: 3px;
-      font-size: 20px;
+
+      font-size: 23px;
+      font-weight: 950;
     }
 
-    .hero-stat span {
-      color: #969ba5;
-      font-size: 8px;
+    .stat span {
+      color: #8f949d;
+
+      font-size: 9px;
       font-weight: 900;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
     }
 
-    .notice {
-      display: none;
-      margin: 0 0 18px;
-      padding: 13px 15px;
-      border-radius: 12px;
-      font-size: 13px;
-      line-height: 1.5;
+    /* PLAYERS */
+
+    .players-section {
+      padding: 48px 0;
     }
 
-    .notice.success {
-      display: block;
-      border: 1px solid rgba(76,225,145,.28);
-      background: rgba(76,225,145,.08);
-      color: #dffff0;
+    .section-head {
+      text-align: center;
+
+      margin-bottom: 28px;
     }
 
-    .notice.error {
-      display: block;
-      border: 1px solid rgba(255,90,110,.28);
-      background: rgba(255,90,110,.08);
-      color: #ffe1e5;
-    }
+    .section-label {
+      margin-bottom: 9px;
 
-    .progress-section {
-      padding: 4px 0 14px;
-    }
+      color: var(--pink);
 
-    .progress-card {
-      padding: 20px 22px;
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 18px;
-      background: rgba(255,255,255,.025);
-    }
-
-    .progress-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 16px;
-      margin-bottom: 12px;
-    }
-
-    .progress-title {
-      color: white;
-      font-size: 13px;
+      font-size: 10px;
       font-weight: 950;
-      letter-spacing: 1px;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
-    .progress-money {
-      margin-top: 4px;
-      font-size: 24px;
-      font-weight: 950;
-      color: white;
+    .section-head h2 {
+      margin: 0;
+
+      font-size:
+        clamp(34px, 5vw, 58px);
+
+      line-height: .95;
+      text-transform: uppercase;
     }
 
-    .progress-money span {
-      color: #aeb3bd;
-      font-size: 12px;
-      font-weight: 700;
+    .section-head p {
+      max-width: 700px;
+
+      margin: 13px auto 0;
+
+      color: #aeb2bb;
+
+      line-height: 1.6;
     }
 
-    .progress-percent {
-      color: var(--blue-light);
-      font-size: 15px;
-      font-weight: 950;
+    .players-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 14px;
     }
 
-    .progress-track {
+    .player-card {
       position: relative;
-      width: 100%;
-      height: 16px;
       overflow: hidden;
-      border-radius: 999px;
-      background: rgba(255,255,255,.08);
-      box-shadow:
-        inset 0 2px 4px rgba(0,0,0,.35);
+
+      display: block;
+
+      min-height: 150px;
+
+      padding: 20px;
+
+      border-radius: 18px;
+
+      border:
+        1px solid rgba(255,255,255,.10);
+
+      text-decoration: none;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.015)
+        );
+
+      transition:
+        transform .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease;
     }
 
-    .progress-fill {
-      width: 0%;
-      height: 100%;
-      border-radius: inherit;
+    .player-card::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      height: 4px;
+
       background:
         linear-gradient(
           90deg,
-          var(--blue) 0%,
-          #6f8cff 45%,
-          var(--silver) 100%
+          var(--blue),
+          var(--pink)
         );
+    }
+
+    .player-card::after {
+      content: "";
+
+      position: absolute;
+      right: -55px;
+      bottom: -65px;
+
+      width: 145px;
+      height: 145px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(11,53,255,.17),
+          transparent 68%
+        );
+    }
+
+    .player-card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(11,53,255,.5);
+
       box-shadow:
-        0 0 14px rgba(11,53,255,.45),
-        0 0 18px rgba(203,209,218,.25);
-      transition: width .6s ease;
+        0 18px 40px rgba(0,0,0,.35);
     }
 
-    .progress-details {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 9px;
-      color: #888e98;
-      font-size: 9px;
-      font-weight: 900;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-    }
+    .player-number {
+      color: var(--pink);
 
-    .baseball-section {
-      padding: 24px 0 36px;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 8px;
-    }
-
-    .section-heading h2 {
-      margin: 0;
-      font-size: clamp(31px, 5vw, 52px);
-      text-transform: uppercase;
-      line-height: .95;
-    }
-
-    .section-heading p {
-      margin: 10px auto 0;
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .ball-instruction {
-      margin: 20px auto 24px;
-      max-width: 720px;
-      padding: 12px 16px;
-      text-align: center;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.09);
-      background: rgba(255,255,255,.025);
-      color: #c8ccd3;
       font-size: 13px;
+      font-weight: 950;
+      letter-spacing: 2px;
     }
 
-    .ball-instruction strong {
-      color: white;
+    .player-name {
+      position: relative;
+      z-index: 2;
+
+      margin-top: 8px;
+
+      font-size: 20px;
+      font-weight: 950;
+
+      line-height: 1.12;
     }
 
-    .baseball-grid {
-      display:grid;
-      grid-template-columns:repeat(10,minmax(0,1fr));
-      gap:16px 9px;
-      margin-top:27px;
+    .player-action {
+      position: absolute;
+      z-index: 3;
+
+      left: 20px;
+      bottom: 17px;
+
+      color: var(--blue-light);
+
+      font-size: 9px;
+      font-weight: 950;
+
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
     }
 
-    .ball-wrap {
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      min-width:0;
+    .player-action span {
+      color: var(--pink);
     }
 
-    .baseball {
-      position:relative;
+    /* GENERAL DONATION */
 
-      display:flex;
-      justify-content:center;
-      align-items:center;
-
-      width:66px;
-      height:66px;
-
-      overflow:hidden;
-
-      padding:0;
-
-      border-radius:50%;
-
-      cursor:pointer;
-
-      border:2px solid #c7ccd3;
-
-      background:
-
-        radial-gradient(
-          circle at 35% 28%,
-          #fff 0%,
-          #fff 37%,
-          #f0f0f0 66%,
-          #c9ccd0 100%
-        );
-
-      box-shadow:
-        0 6px 13px rgba(0,0,0,.34),
-        inset -7px -7px 12px rgba(0,0,0,.08);
-
-      transition:
-        transform .15s ease,
-        box-shadow .15s ease,
-        border-color .15s ease;
+    .general-section {
+      padding: 8px 0 54px;
     }
 
-    .baseball::before,
-    .baseball::after {
-      content:"";
-      position:absolute;
-      top:-9px;
+    .general-panel {
+      position: relative;
+      overflow: hidden;
 
-      width:51px;
-      height:82px;
-
-      border:2px dashed #b92534;
-      border-radius:50%;
-    }
-
-    .baseball::before {
-      left:-36px;
-    }
-
-    .baseball::after {
-      right:-36px;
-    }
-
-    .ball-number {
-      position:relative;
-      z-index:3;
-
-      color:#081b5e;
-
-      font-size:19px;
-      font-weight:950;
-    }
-
-    .baseball:hover:not(.sold) {
-      transform:
-        translateY(-3px)
-        scale(1.04);
-
-      border-color:#4167ff;
-    }
-
-    .baseball.selected {
-      transform:scale(1.06);
-
-      border-color:#fff;
-
-      box-shadow:
-        0 0 0 3px rgba(11,53,255,.82),
-        0 0 20px rgba(65,103,255,.34),
-        0 8px 18px rgba(0,0,0,.34);
-    }
-
-    .baseball.sold {
-      cursor:not-allowed;
-
-      background:
-
-        radial-gradient(
-          circle at 35% 28%,
-          #363d48 0%,
-          #232a35 48%,
-          #0b1018 100%
-        );
-
-      border-color:#555e6b;
-      opacity:.90;
-    }
-
-    .baseball.sold::before,
-    .baseball.sold::after {
-      border-color:#747d89;
-    }
-
-    .baseball.sold .ball-number {
-      color:#fff;
-    }
-
-    .donor-name {
-      width:78px;
-      min-height:20px;
-      margin-top:5px;
-
-      overflow:hidden;
-
-      color:#6f8cff;
-
-      text-align:center;
-
-      font-size:8px;
-      line-height:1.2;
-      font-weight:900;
-
-      word-break:break-word;
-    }
-
-
-    .donor-name.empty {
-      visibility: hidden;
-    }
-
-    .checkout-layout {
       display: grid;
-      grid-template-columns: 1fr .85fr;
-      gap: 20px;
-      padding-bottom: 42px;
+
+      grid-template-columns:
+        .95fr 1.05fr;
+
+      gap: 34px;
+      align-items: center;
+
+      padding: 38px;
+
+      border-radius: 26px;
+
+      border:
+        1px solid rgba(255,255,255,.11);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(11,53,255,.11),
+          rgba(203,209,218,.10)
+        );
+
+      box-shadow:
+        0 24px 65px rgba(0,0,0,.36);
     }
 
-    .panel {
+    .general-panel::before {
+      content: "";
+
+      position: absolute;
+      left: -80px;
+      bottom: -120px;
+
+      width: 430px;
+      height: 240px;
+
+      opacity: .40;
+
+      background:
+        linear-gradient(
+          145deg,
+          transparent 0 28%,
+          rgba(11,53,255,.22) 28.5% 52%,
+          transparent 52.5%
+        );
+    }
+
+    .general-copy,
+    .general-form {
+      position: relative;
+      z-index: 2;
+    }
+
+    .general-copy h2 {
+      margin: 6px 0 0;
+
+      font-size:
+        clamp(32px, 4.5vw, 54px);
+
+      line-height: .96;
+      text-transform: uppercase;
+    }
+
+    .general-copy p {
+      margin: 14px 0 0;
+
+      color: #c1c5cc;
+
+      line-height: 1.6;
+    }
+
+    .general-form {
+      padding: 23px;
+
+      border-radius: 18px;
+
       border:
         1px solid rgba(255,255,255,.10);
-      border-radius: 20px;
+
       background:
-        rgba(255,255,255,.025);
-      padding: 23px;
-    }
+        rgba(3,4,6,.55);
 
-    .panel h3 {
-      margin: 0 0 15px;
-      font-size: 20px;
-    }
-
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 10px 0;
-      border-bottom:
-        1px solid rgba(255,255,255,.07);
-      color: #c4c8d0;
-      font-size: 13px;
-    }
-
-    .summary-row strong {
-      color: white;
-    }
-
-    .selected-list {
-      min-height: 40px;
-      margin-top: 13px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.6;
+      backdrop-filter: blur(10px);
     }
 
     .field {
@@ -657,25 +839,36 @@
 
     .field label {
       display: block;
+
       margin-bottom: 6px;
-      color: #c6cad2;
-      font-size: 9px;
-      font-weight: 950;
-      letter-spacing: 1.3px;
+
+      color: #c8cbd1;
+
+      font-size: 10px;
+      font-weight: 900;
+
+      letter-spacing: 1.2px;
       text-transform: uppercase;
     }
 
     .field input {
       width: 100%;
-      min-height: 46px;
-      padding: 0 12px;
-      border-radius: 10px;
-      border:
-        1px solid rgba(255,255,255,.11);
-      outline: none;
+
+      min-height: 47px;
+
+      padding: 0 13px;
+
       color: white;
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
+      border-radius: 10px;
+
+      outline: none;
+
       background:
-        rgba(0,0,0,.28);
+        rgba(0,0,0,.30);
     }
 
     .field input:focus {
@@ -683,567 +876,871 @@
         rgba(11,53,255,.65);
     }
 
-    .anonymous-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin: 4px 0 15px;
-      color: #b9bdc5;
-      font-size: 12px;
-    }
-
-    .anonymous-row input {
-      width: 17px;
-      height: 17px;
-    }
-
-    .checkout-button {
-      width: 100%;
-      min-height: 50px;
-      border: 0;
-      border-radius: 11px;
-      color: white;
-      background:
-        linear-gradient(
-          115deg,
-          var(--blue),
-          var(--silver)
-        );
-      font-size: 11px;
-      font-weight: 950;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .checkout-button:disabled {
-      opacity: .5;
-      cursor: not-allowed;
-    }
-
-    .general-donation-box {
-      margin-top: 17px;
-      padding-top: 17px;
-      border-top:
-        1px solid rgba(255,255,255,.08);
-    }
-
     .amount-wrap {
       position: relative;
     }
 
-    .amount-symbol {
+    .dollar {
       position: absolute;
+
+      left: 14px;
       top: 50%;
-      left: 12px;
+
       transform: translateY(-50%);
+
       color: var(--blue-light);
+
       font-weight: 950;
     }
 
     .amount-wrap input {
-      padding-left: 29px;
+      padding-left: 30px;
     }
 
-    .back-link {
-      display: inline-flex;
+    .anon {
+      display: flex;
       align-items: center;
-      gap: 7px;
-      margin-bottom: 18px;
-      color: var(--blue-light);
-      text-decoration: none;
-      font-size: 11px;
+      gap: 8px;
+
+      margin:
+        2px 0
+        16px;
+
+      color: #b6bac2;
+
+      font-size: 12px;
+    }
+
+    .anon input {
+      width: 17px;
+      height: 17px;
+    }
+
+    .donate-btn {
+      width: 100%;
+      min-height: 51px;
+
+      border: 0;
+      border-radius: 11px;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          115deg,
+          var(--blue),
+          var(--pink)
+        );
+
+      font-size: 12px;
       font-weight: 950;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
+    .donate-btn:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    .general-message {
+      display: none;
+
+      margin-top: 12px;
+
+      padding: 11px;
+
+      border-radius: 9px;
+
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .general-message.error {
+      display: block;
+
+      color: #ffdce2;
+
+      background:
+        rgba(255,80,100,.09);
+
+      border:
+        1px solid rgba(255,80,100,.25);
+    }
+
+    .general-message.success {
+      display: block;
+
+      color: #e1fff0;
+
+      background:
+        rgba(70,220,140,.08);
+
+      border:
+        1px solid rgba(70,220,140,.25);
+    }
+
+    /* HOW IT WORKS */
+
+    .how-section {
+      padding: 8px 0 54px;
+    }
+
+    .how-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 14px;
+    }
+
+    .how-card {
+      min-height: 195px;
+
+      padding: 25px;
+
+      border-radius: 20px;
+
+      border:
+        1px solid rgba(255,255,255,.1);
+
+      background:
+        rgba(255,255,255,.025);
+    }
+
+    .how-number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 42px;
+      height: 42px;
+
+      margin-bottom: 17px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--pink)
+        );
+
+      font-weight: 950;
+    }
+
+    .how-card h3 {
+      margin: 0 0 8px;
+
+      font-size: 19px;
+    }
+
+    .how-card p {
+      margin: 0;
+
+      color: #aeb2bb;
+
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
     footer {
-      padding: 6px 0 30px;
+      padding: 0 0 35px;
+
       text-align: center;
-      color: #737983;
-      font-size: 9px;
+
+      color: #717680;
+
+      font-size: 10px;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
-    @media (max-width: 1000px) {
-      .baseball-grid {
-        grid-template-columns:
-          repeat(8, 1fr);
-      }
+    .footer-line {
+      height: 1px;
+
+      margin-bottom: 22px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(11,53,255,.35),
+          rgba(203,209,218,.35),
+          transparent
+        );
     }
 
-    @media (max-width: 820px) {
+    /* TABLET */
+
+    @media (max-width: 980px) {
       .hero-grid {
         grid-template-columns: 1fr;
+
+        padding:
+          43px
+          34px
+          122px;
       }
 
-      .ripken-wrap {
-        margin-top: 18px;
+      .hero-badge-area {
+        min-height: 250px;
       }
 
       .ripken-logo {
-        width: 190px;
+        width: 240px;
       }
 
-      .baseball-grid {
-        grid-template-columns:
-          repeat(6, 1fr);
-        gap: 16px 9px;
-      }
-
-      .checkout-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .shell {
-        width:
-          min(
-            100% - 14px,
-            1150px
-          );
-      }
-
-      .hero-card {
-        padding:
-          27px
-          17px
-          105px;
-        border-radius: 22px;
-      }
-
-      .player-name {
-        font-size:
-          clamp(40px, 13vw, 68px);
-      }
-
-      .hero-bottom {
+      .players-grid {
         grid-template-columns:
           repeat(3, 1fr);
       }
 
-      .hero-stat {
-        padding: 14px 4px;
-      }
-
-      .hero-stat strong {
-        font-size: 17px;
-      }
-
-      .hero-stat span {
-        font-size: 6.5px;
-      }
-
-      .progress-card {
-        padding: 17px 15px;
-      }
-
-      .progress-money {
-        font-size: 21px;
-      }
-
-      .progress-top {
-        align-items: center;
-      }
-
-      .progress-details {
-        font-size: 8px;
-      }
-
-      .baseball-section {
-        padding-top: 18px;
-      }
-
-      .baseball-grid {
-        grid-template-columns:
-          repeat(5, minmax(0, 1fr));
-        gap: 14px 4px;
-      }
-
-      .baseball {
-        width: 59px;
-        height: 59px;
-        box-shadow:
-          inset -4px -6px 8px rgba(0,0,0,.11),
-          inset 4px 4px 7px rgba(255,255,255,.85),
-          0 4px 0 #b8bbc0,
-          0 7px 10px rgba(0,0,0,.36);
-      }
-
-      .baseball::before,
-      .baseball::after {
-        top: 8px;
-        width: 28px;
-        height: 46px;
-      }
-
-      .baseball::before {
-        left: 5px;
-      }
-
-      .baseball::after {
-        right: 5px;
-      }
-
-      .ball-number {
-        font-size: 17px;
-      }
-
-      .donor-name {
-        min-height: 21px;
-        margin-top: 4px;
-        font-size: 7.5px;
-      }
-
-      .panel {
-        padding: 18px;
+      .general-panel {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 370px) {
-      .baseball {
-        width: 59px;
-        height: 59px;
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+      .shell {
+        width:
+          min(
+            100% - 18px,
+            1180px
+          );
       }
 
-      .ball-number {
-        font-size: 16px;
+      .header {
+        padding-top: 16px;
       }
 
-      .baseball::before,
-      .baseball::after {
-        width: 26px;
-        height: 42px;
+      .hero {
+        padding-top: 6px;
+      }
+
+      .hero-panel {
+        min-height: auto;
+        border-radius: 23px;
+      }
+
+      .hero-grid {
+        padding:
+          29px
+          18px
+          175px;
+
+        gap: 2px;
+      }
+
+      h1 {
+        font-size:
+          clamp(46px, 15vw, 78px);
+
+        letter-spacing: -3px;
+      }
+
+      .hero-copy {
+        font-size: 15px;
+      }
+
+      .hero-buttons {
+        display: grid;
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 8px;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        padding:
+          0
+          10px;
+
+        font-size: 10px;
+      }
+
+      .hero-badge-area {
+        min-height: 195px;
+      }
+
+      .ripken-logo {
+        width: 175px;
+      }
+
+      .mountains-back {
+        height: 42%;
+      }
+
+      .mountains-mid {
+        height: 37%;
+      }
+
+      .stats {
+        grid-template-columns:
+          repeat(4, 1fr);
+      }
+
+      .stat {
+        padding:
+          15px
+          4px;
+      }
+
+      .stat strong {
+        font-size: 18px;
+      }
+
+      .stat span {
+        font-size: 7px;
+        letter-spacing: .7px;
+      }
+
+      /* IMPORTANT:
+         ALWAYS TWO COLUMNS ON MOBILE */
+
+      .players-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 9px;
+      }
+
+      .player-card {
+        min-height: 115px;
+
+        padding:
+          15px
+          13px;
+      }
+
+      .player-number {
+        font-size: 11px;
+      }
+
+      .player-name {
+        margin-top: 5px;
+
+        font-size: 15px;
+      }
+
+      .player-action {
+        left: 13px;
+        bottom: 12px;
+
+        font-size: 7px;
+
+        letter-spacing: .7px;
+      }
+
+      .general-panel {
+        padding:
+          27px
+          18px;
+
+        gap: 22px;
+      }
+
+      .general-form {
+        padding: 17px;
+      }
+
+      .how-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 380px) {
+      /*
+        Do NOT switch the players
+        to one column.
+        Keep 2 x 6.
+      */
+
+      .players-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 7px;
+      }
+
+      .player-card {
+        min-height: 108px;
+
+        padding:
+          13px
+          10px;
+      }
+
+      .player-name {
+        font-size: 14px;
+      }
+
+      .player-action {
+        left: 10px;
+
+        font-size: 6.5px;
       }
     }
   
-    /* WBT: keep Pigeon Forge logo beside hero text/name */
+    /* WBT OVERRIDE: keep the Pigeon Forge logo BESIDE the hero headline */
     .hero-grid {
-      grid-template-columns: minmax(0, 1.12fr) minmax(190px, .55fr) !important;
+      grid-template-columns: minmax(0, 1.12fr) minmax(240px, .68fr) !important;
       align-items: center !important;
     }
 
     .hero-badge-area {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
       min-height: 0 !important;
-      align-self: center;
     }
 
-    .ripken-logo {
-      width: min(285px, 100%) !important;
-      margin: 0 auto;
+    .hero-badge-area .ripken-logo {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      width: min(335px, 100%) !important;
+      height: auto !important;
+      position: relative !important;
+      z-index: 5 !important;
     }
 
     @media (max-width: 980px) {
       .hero-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(160px, .42fr) !important;
+        grid-template-columns: minmax(0, 1fr) 210px !important;
         gap: 18px !important;
+        padding: 43px 28px 122px !important;
       }
 
       .hero-badge-area {
         min-height: 0 !important;
       }
 
-      .ripken-logo {
-        width: min(220px, 100%) !important;
+      .hero-badge-area .ripken-logo {
+        width: 205px !important;
       }
     }
 
     @media (max-width: 700px) {
       .hero-grid {
-        grid-template-columns: minmax(0, 1fr) 115px !important;
+        grid-template-columns: minmax(0, 1fr) 125px !important;
         gap: 8px !important;
-        align-items: center !important;
+        padding: 29px 14px 175px !important;
       }
 
       .hero-badge-area {
         min-height: 0 !important;
       }
 
-      .ripken-logo {
-        width: 112px !important;
-        max-width: 112px !important;
+      .hero-badge-area .ripken-logo {
+        width: 120px !important;
+        max-width: 120px !important;
+      }
+
+      h1 {
+        font-size: clamp(38px, 11vw, 62px) !important;
+        letter-spacing: -3px !important;
       }
     }
 
     @media (max-width: 390px) {
       .hero-grid {
-        grid-template-columns: minmax(0, 1fr) 92px !important;
+        grid-template-columns: minmax(0, 1fr) 102px !important;
+        gap: 5px !important;
       }
 
-      .ripken-logo {
-        width: 90px !important;
-        max-width: 90px !important;
+      .hero-badge-area .ripken-logo {
+        width: 98px !important;
+        max-width: 98px !important;
       }
     }
 
   </style>
 </head>
 
+
 <body>
 
   <div class="top-strip"></div>
 
+
   <header class="header">
+
     <div class="shell">
+
       <div class="header-inner">
+
         <img
           class="legacy-logo"
           src="/wbt-logo.png"
           alt="West Boynton Travel Cobras"
         />
+
       </div>
+
     </div>
+
   </header>
+
+
 
   <main>
 
-    <div class="shell">
-      <a
-        class="back-link"
-        href="/"
-      >
-        ← Back To Team
-      </a>
-    </div>
+
+    <!-- HERO -->
 
     <section class="hero">
+
       <div class="shell">
-        <div class="hero-card">
+
+        <div class="hero-panel">
+
 
           <div class="mountains-back"></div>
-          <div class="mountains-front"></div>
+
+          <div class="mountains-mid"></div>
+
+          <div class="mountain-glow-blue"></div>
+
+          <div class="mountain-glow-pink"></div>
+
 
           <div class="hero-grid">
 
             <div>
 
-              <div class="eyebrow">
-                Road To Pigeon Forge
+              <div class="kicker">
+                West Boynton Travel Cobras
               </div>
 
-              <h1
-                class="player-name"
-                id="playerName"
-              >
-                West Boynton Player
+
+              <h1>
+
+                <span class="road">
+                  Road To
+                </span>
+
+                <span class="pigeon">
+                  Pigeon Forge
+                </span>
+
               </h1>
 
-              <div
-                class="player-number"
-                id="playerNumber"
-              >
-                #
-              </div>
 
               <p class="hero-copy">
-                Choose one or more available
-                baseballs to support
-                <strong id="playerCopyName">
-                  this West Boynton Travel player
+
+                Help West Boynton Travel
+                make the journey to
+                <strong>
+                  Pigeon Forge, Tennessee
                 </strong>
-                on the journey to the
-                Ripken Experience in
-                Pigeon Forge, Tennessee.
+                for an unforgettable baseball
+                experience at the
+                <strong>
+                  Ripken Experience.
+                </strong>
+
               </p>
+
+
+              <div class="hero-buttons">
+
+                <a
+                  class="primary-btn"
+                  href="#players"
+                >
+                  Choose A Player
+                </a>
+
+                <a
+                  class="secondary-btn"
+                  href="#general-donation"
+                >
+                  General Donation
+                </a>
+
+              </div>
 
             </div>
 
-            <div class="ripken-wrap">
+
+            <div class="hero-badge-area">
+
               <img
                 class="ripken-logo"
                 src="/ripken-pigeon-forge.webp"
                 alt="Ripken Experience Pigeon Forge"
+                onerror="if(!this.dataset.retry){this.dataset.retry='1';this.src='/pigeon-forge-logo.png';}else if(this.dataset.retry==='1'){this.dataset.retry='2';this.src='/ripken-pigeon-forge.png';}"
               />
+
             </div>
 
           </div>
 
-          <div class="hero-bottom">
 
-            <div class="hero-stat">
+          <div class="stats">
+
+            <div class="stat">
+              <strong>12</strong>
+              <span>West Boynton Players</span>
+            </div>
+
+            <div class="stat">
               <strong>60</strong>
-              <span>Baseballs</span>
+              <span>Balls Each</span>
             </div>
 
-            <div class="hero-stat">
-              <strong>1–60</strong>
-              <span>Ball Numbers</span>
+            <div class="stat">
+              <strong>$1–$60</strong>
+              <span>Ball Values</span>
             </div>
 
-            <div class="hero-stat">
-              <strong id="soldCount">0</strong>
-              <span>Sold</span>
+            <div class="stat">
+              <strong>TN</strong>
+              <span>Pigeon Forge</span>
             </div>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="progress-section">
-      <div class="shell">
-
-        <div class="progress-card">
-
-          <div class="progress-top">
-
-            <div>
-
-              <div class="progress-title">
-                Fundraising Progress
-              </div>
-
-              <div class="progress-money">
-                <strong id="amountRaised">
-                  $0
-                </strong>
-
-                <span>
-                  Raised of
-                  <strong id="goalAmount">
-                    $1,830
-                  </strong>
-                  Goal
-                </span>
-              </div>
-
-            </div>
-
-            <div
-              class="progress-percent"
-              id="progressPercent"
-            >
-              0%
-            </div>
-
-          </div>
-
-          <div
-            class="progress-track"
-            id="progressTrack"
-            role="progressbar"
-            aria-label="Fundraising progress"
-            aria-valuemin="0"
-            aria-valuemax="1830"
-            aria-valuenow="0"
-          >
-            <div
-              class="progress-fill"
-              id="progressFill"
-            ></div>
-          </div>
-
-          <div class="progress-details">
-
-            <span>
-              Support
-              <span id="progressPlayerName">
-                West Boynton Travel
-              </span>
-            </span>
-
-            <span id="amountRemaining">
-              $1,830 To Go
-            </span>
 
           </div>
 
         </div>
 
       </div>
+
     </section>
 
-    <section class="baseball-section">
+
+
+    <!-- PLAYERS -->
+
+    <section
+      class="players-section"
+      id="players"
+    >
 
       <div class="shell">
 
-        <div
-          id="pageNotice"
-          class="notice"
-        ></div>
+        <div class="section-head">
 
-        <div class="section-heading">
+          <div class="section-label">
+            Choose Your Player
+          </div>
 
           <h2>
-            Pick Your Baseballs
+            Support The Journey
           </h2>
 
           <p>
-            Select any available baseballs
-            below. You can choose more than
-            one baseball in a single donation.
+            Select a West Boynton Travel
+            player to view their available
+            baseballs and support their
+            Road to Pigeon Forge.
           </p>
 
         </div>
 
-        <div class="ball-instruction">
 
-          <strong>
-            The number on each baseball equals
-            the donation amount.
-          </strong>
+        <div class="players-grid">
 
-          For example, baseball 27 is a
-          $27 donation.
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=caden-thornton"
+          >
+            <div class="player-number">#2</div>
+            <div class="player-name">Caden Thornton</div>
+
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
+
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=ethan-novak"
+          >
+            <div class="player-number">#3</div>
+            <div class="player-name">Ethan Novak</div>
+
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
+
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=connor-criss"
+          >
+            <div class="player-number">#4</div>
+            <div class="player-name">Connor Criss</div>
+
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
+
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=khristian-ramos"
+          >
+            <div class="player-number">#5</div>
+            <div class="player-name">Khristian Ramos</div>
+
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
+
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=william-easterbrook"
+          >
+            <div class="player-number">#7</div>
+            <div class="player-name">William Easterbrook</div>
+
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
+
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=kua-duchene"
+          >
+            <div class="player-number">#11</div>
+            <div class="player-name">Kua Duchene</div>
+
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
+
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=roberto-alberto"
+          >
+            <div class="player-number">#13</div>
+            <div class="player-name">Roberto Alberto</div>
+
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
+
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=adrian-guerra"
+          >
+            <div class="player-number">#18</div>
+            <div class="player-name">Adrian Guerra</div>
+
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
+
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=jaxon-graham"
+          >
+            <div class="player-number">#24</div>
+            <div class="player-name">Jaxon Graham</div>
+
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
+
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=mason-haygood"
+          >
+            <div class="player-number">#33</div>
+            <div class="player-name">Mason Haygood</div>
+
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
+
+          <a
+            class="player-card"
+            href="/fundraiser.html?player=ezra-espinal"
+          >
+            <div class="player-number">#44</div>
+            <div class="player-name">Ezra Espinal</div>
+
+            <div class="player-action">
+              Support Player <span>→</span>
+            </div>
+          </a>
+
 
         </div>
-
-        <div
-          id="baseballGrid"
-          class="baseball-grid"
-        ></div>
 
       </div>
 
     </section>
 
-    <section>
+
+
+    <!-- GENERAL DONATION -->
+
+    <section
+      class="general-section"
+      id="general-donation"
+    >
+
       <div class="shell">
 
-        <div class="checkout-layout">
+        <div class="general-panel">
 
-          <div class="panel">
 
-            <h3>
-              Your Selection
-            </h3>
+          <div class="general-copy">
 
-            <div class="summary-row">
-              <span>Baseballs Selected</span>
-              <strong id="selectedCount">0</strong>
+            <div class="section-label">
+              Support The Team
             </div>
 
-            <div class="summary-row">
-              <span>Donation Total</span>
-              <strong id="selectedTotal">$0</strong>
-            </div>
+            <h2>
+              General Donation
+            </h2>
 
-            <div
-              class="selected-list"
-              id="selectedList"
-            >
-              No baseballs selected yet.
-            </div>
+            <p>
+              Don't have a specific player
+              in mind? Make a general donation
+              to support West Boynton Travel's
+              Road to Pigeon Forge.
+            </p>
 
           </div>
 
-          <div class="panel">
 
-            <h3>
-              Complete Your Donation
-            </h3>
+
+          <div class="general-form">
+
 
             <div class="field">
 
-              <label for="donorName">
+              <label for="teamDonorName">
                 Donor Name
               </label>
 
               <input
-                id="donorName"
+                id="teamDonorName"
                 type="text"
                 placeholder="Your name"
                 autocomplete="name"
@@ -1251,10 +1748,51 @@
 
             </div>
 
-            <label class="anonymous-row">
+
+            <div class="field">
+
+              <label for="teamDonorEmail">
+                Email
+              </label>
 
               <input
-                id="anonymous"
+                id="teamDonorEmail"
+                type="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+              />
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="teamAmount">
+                Donation Amount
+              </label>
+
+              <div class="amount-wrap">
+
+                <span class="dollar">$</span>
+
+                <input
+                  id="teamAmount"
+                  type="number"
+                  min="1"
+                  step="1"
+                  placeholder="25"
+                  inputmode="decimal"
+                />
+
+              </div>
+
+            </div>
+
+
+            <label class="anon">
+
+              <input
+                id="teamAnonymous"
                 type="checkbox"
               />
 
@@ -1262,924 +1800,172 @@
 
             </label>
 
+
             <button
-              id="checkoutButton"
-              class="checkout-button"
+              id="teamDonateButton"
+              class="donate-btn"
               type="button"
-              disabled
             >
-              Continue To Secure Checkout
+              Make General Donation
             </button>
 
-            <div class="general-donation-box">
 
-              <h3>
-                General Donation
-              </h3>
+            <div
+              id="generalMessage"
+              class="general-message"
+            ></div>
 
-              <p
-                style="
-                  margin:0 0 12px;
-                  color:#aeb3bd;
-                  font-size:12px;
-                  line-height:1.5;
-                "
-              >
-                Want to support this player
-                without choosing a baseball?
-                Enter any amount below.
-              </p>
-
-              <div class="field">
-
-                <label for="generalAmount">
-                  Donation Amount
-                </label>
-
-                <div class="amount-wrap">
-
-                  <span class="amount-symbol">
-                    $
-                  </span>
-
-                  <input
-                    id="generalAmount"
-                    type="number"
-                    min="1"
-                    step="1"
-                    inputmode="decimal"
-                    placeholder="25"
-                  />
-
-                </div>
-
-              </div>
-
-              <button
-                id="generalButton"
-                class="checkout-button"
-                type="button"
-              >
-                Make General Donation
-              </button>
-
-            </div>
 
           </div>
 
         </div>
 
       </div>
+
     </section>
+
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="how-section">
+
+      <div class="shell">
+
+        <div class="section-head">
+
+          <div class="section-label">
+            Baseball Fundraiser
+          </div>
+
+          <h2>
+            How It Works
+          </h2>
+
+        </div>
+
+
+        <div class="how-grid">
+
+
+          <div class="how-card">
+
+            <div class="how-number">
+              1
+            </div>
+
+            <h3>
+              Choose A Player
+            </h3>
+
+            <p>
+              Select the West Boynton Travel
+              player you would like to support.
+            </p>
+
+          </div>
+
+
+          <div class="how-card">
+
+            <div class="how-number">
+              2
+            </div>
+
+            <h3>
+              Pick Baseballs
+            </h3>
+
+            <p>
+              Every player has baseballs
+              numbered 1 through 60.
+              The number equals the donation
+              amount.
+            </p>
+
+          </div>
+
+
+          <div class="how-card">
+
+            <div class="how-number">
+              3
+            </div>
+
+            <h3>
+              Support The Journey
+            </h3>
+
+            <p>
+              Complete your secure checkout
+              and help send South Florida
+              Legacy to Pigeon Forge.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
 
   </main>
 
+
+
   <footer>
+
     <div class="shell">
+
+      <div class="footer-line"></div>
+
       West Boynton Travel Cobras
       &nbsp;•&nbsp;
       Road To Pigeon Forge
       &nbsp;•&nbsp;
       2026
+
     </div>
+
   </footer>
 
+
+
   <script>
-    const players = {
-      "caden-thornton": {
-        name: "Caden Thornton",
-        number: 2
-      },
+    const teamDonateButton =
+      document.getElementById("teamDonateButton");
 
-      "ethan-novak": {
-        name: "Ethan Novak",
-        number: 3
-      },
+    const teamAnonymous =
+      document.getElementById("teamAnonymous");
 
-      "connor-criss": {
-        name: "Connor Criss",
-        number: 4
-      },
+    const teamDonorName =
+      document.getElementById("teamDonorName");
 
-      "khristian-ramos": {
-        name: "Khristian Ramos",
-        number: 5
-      },
-
-      "william-easterbrook": {
-        name: "William Easterbrook",
-        number: 7
-      },
-
-      "kua-duchene": {
-        name: "Kua Duchene",
-        number: 11
-      },
-
-      "roberto-alberto": {
-        name: "Roberto Alberto",
-        number: 13
-      },
-
-      "adrian-guerra": {
-        name: "Adrian Guerra",
-        number: 18
-      },
-
-      "jaxon-graham": {
-        name: "Jaxon Graham",
-        number: 24
-      },
-
-      "mason-haygood": {
-        name: "Mason Haygood",
-        number: 33
-      },
-
-      "ezra-espinal": {
-        name: "Ezra Espinal",
-        number: 44
-      }
-
-    };
-
-    const params =
-      new URLSearchParams(
-        window.location.search
-      );
-
-    let playerSlug =
-      params.get("player") ||
-      "caden-thornton";
-
-    if (!players[playerSlug]) {
-      playerSlug = "caden-thornton";
-    }
-
-    const player =
-      players[playerSlug];
-
-    const playerName =
-      document.getElementById(
-        "playerName"
-      );
-
-    const playerNumber =
-      document.getElementById(
-        "playerNumber"
-      );
-
-    const playerCopyName =
-      document.getElementById(
-        "playerCopyName"
-      );
-
-    const baseballGrid =
-      document.getElementById(
-        "baseballGrid"
-      );
-
-    const soldCount =
-      document.getElementById(
-        "soldCount"
-      );
-
-    const amountRaised =
-      document.getElementById(
-        "amountRaised"
-      );
-
-    const goalAmount =
-      document.getElementById(
-        "goalAmount"
-      );
-
-    const progressPercent =
-      document.getElementById(
-        "progressPercent"
-      );
-
-    const progressFill =
-      document.getElementById(
-        "progressFill"
-      );
-
-    const progressTrack =
-      document.getElementById(
-        "progressTrack"
-      );
-
-    const progressPlayerName =
-      document.getElementById(
-        "progressPlayerName"
-      );
-
-    const amountRemaining =
-      document.getElementById(
-        "amountRemaining"
-      );
-
-    const selectedCount =
-      document.getElementById(
-        "selectedCount"
-      );
-
-    const selectedTotal =
-      document.getElementById(
-        "selectedTotal"
-      );
-
-    const selectedList =
-      document.getElementById(
-        "selectedList"
-      );
-
-    const donorName =
-      document.getElementById(
-        "donorName"
-      );
-
-    const anonymous =
-      document.getElementById(
-        "anonymous"
-      );
-
-    const checkoutButton =
-      document.getElementById(
-        "checkoutButton"
-      );
-
-    const generalAmount =
-      document.getElementById(
-        "generalAmount"
-      );
-
-    const generalButton =
-      document.getElementById(
-        "generalButton"
-      );
-
-    const pageNotice =
-      document.getElementById(
-        "pageNotice"
-      );
-
-    const selectedBalls =
-      new Set();
-
-    const soldBallMap =
-      new Map();
-
-    function showNotice(
-      message,
-      type
-    ) {
-      pageNotice.textContent =
-        message;
-
-      pageNotice.className =
-        `notice ${type}`;
-    }
-
-    function normalizeDonorName(
-      row
-    ) {
-      if (
-        row.anonymous === true ||
-        row.anonymous === "true"
-      ) {
-        return "Anonymous";
-      }
-
-      const name =
-        String(
-          row.donor_name ||
-          row.donorName ||
-          ""
-        ).trim();
-
-      return name || "Anonymous";
-    }
-
-    function getDonorName() {
-      if (anonymous.checked) {
-        return "Anonymous";
-      }
-
-      const name =
-        donorName.value.trim();
-
-      return name || "Anonymous";
-    }
-
-    function renderBaseballs() {
-      baseballGrid.innerHTML = "";
-
-      for (
-        let number = 1;
-        number <= 60;
-        number++
-      ) {
-
-        const wrap =
-          document.createElement(
-            "div"
-          );
-
-        wrap.className =
-          "ball-wrap";
-
-        const button =
-          document.createElement(
-            "button"
-          );
-
-        button.type =
-          "button";
-
-        button.className =
-          "baseball";
-
-        button.dataset.number =
-          String(number);
-
-        const numberSpan =
-          document.createElement(
-            "span"
-          );
-
-        numberSpan.className =
-          "ball-number";
-
-        numberSpan.textContent =
-          String(number);
-
-        button.appendChild(
-          numberSpan
-        );
-
-        const donor =
-          document.createElement(
-            "div"
-          );
-
-        donor.className =
-          "donor-name empty";
-
-        if (
-          soldBallMap.has(number)
-        ) {
-
-          const soldData =
-            soldBallMap.get(number);
-
-          button.classList.add(
-            "sold"
-          );
-
-          button.disabled = true;
-
-          donor.textContent =
-            normalizeDonorName(
-              soldData
-            );
-
-          donor.classList.remove(
-            "empty"
-          );
-
-        } else {
-
-          button.addEventListener(
-            "click",
-            () => {
-
-              if (
-                selectedBalls.has(
-                  number
-                )
-              ) {
-
-                selectedBalls.delete(
-                  number
-                );
-
-                button.classList.remove(
-                  "selected"
-                );
-
-              } else {
-
-                selectedBalls.add(
-                  number
-                );
-
-                button.classList.add(
-                  "selected"
-                );
-
-              }
-
-              updateSelection();
-
-            }
-          );
-
-        }
-
-        wrap.appendChild(
-          button
-        );
-
-        wrap.appendChild(
-          donor
-        );
-
-        baseballGrid.appendChild(
-          wrap
-        );
-      }
-    }
-
-    function updateSelection() {
-      const balls =
-        Array.from(
-          selectedBalls
-        ).sort(
-          (a, b) => a - b
-        );
-
-      const total =
-        balls.reduce(
-          (sum, number) =>
-            sum + number,
-          0
-        );
-
-      selectedCount.textContent =
-        String(
-          balls.length
-        );
-
-      selectedTotal.textContent =
-        `$${total}`;
-
-      if (
-        balls.length === 0
-      ) {
-        selectedList.textContent =
-          "No baseballs selected yet.";
-      } else {
-        selectedList.textContent =
-          `Baseballs: ${balls.join(", ")}`;
-      }
-
-      checkoutButton.disabled =
-        balls.length === 0;
-    }
-
-    function updateProgress(data) {
-      const raised =
-        Number(
-          data.amountRaised || 0
-        );
-
-      const goal =
-        Number(
-          data.goalAmount || 1830
-        );
-
-      const percent =
-        Math.min(
-          100,
-          Math.max(
-            0,
-            Number(
-              data.progressPercent || 0
-            )
-          )
-        );
-
-      const remaining =
-        Math.max(
-          0,
-          goal - raised
-        );
-
-      const moneyFormatter =
-        new Intl.NumberFormat(
-          "en-US",
-          {
-            style: "currency",
-            currency: "USD",
-            maximumFractionDigits: 0
-          }
-        );
-
-      amountRaised.textContent =
-        moneyFormatter.format(
-          raised
-        );
-
-      goalAmount.textContent =
-        moneyFormatter.format(
-          goal
-        );
-
-      if (
-        percent > 0 &&
-        percent < 1
-      ) {
-        progressPercent.textContent =
-          `${percent.toFixed(1)}%`;
-      } else {
-        progressPercent.textContent =
-          `${Math.round(percent)}%`;
-      }
-
-      progressFill.style.width =
-        `${percent}%`;
-
-      progressTrack.setAttribute(
-        "aria-valuemax",
-        String(goal)
-      );
-
-      progressTrack.setAttribute(
-        "aria-valuenow",
-        String(raised)
-      );
-
-      progressPlayerName.textContent =
-        player.name;
-
-      amountRemaining.textContent =
-        remaining > 0
-          ? `${moneyFormatter.format(
-              remaining
-            )} To Go`
-          : "Goal Reached!";
-    }
-
-    async function loadFundraiser() {
-      if (!player) {
-        showNotice(
-          "Player not found. Please return to the team page and choose a player.",
-          "error"
-        );
-
-        return;
-      }
-
-      playerName.textContent =
-        player.name;
-
-      playerNumber.textContent =
-        `#${player.number}`;
-
-      playerCopyName.textContent =
-        player.name;
-
-      progressPlayerName.textContent =
-        player.name;
-
-      renderBaseballs();
-
-      try {
-        const response =
-          await fetch(
-            `/api/fundraiser?player=${encodeURIComponent(
-              playerSlug
-            )}`,
-            {
-              cache: "no-store"
-            }
-          );
-
-        const data =
-          await response.json();
-
-        if (!response.ok) {
-          throw new Error(
-            data.error ||
-            "Unable to load baseball availability."
-          );
-        }
-
-        const soldRows =
-          Array.isArray(
-            data.soldBalls
-          )
-            ? data.soldBalls
-            : [];
-
-        soldBallMap.clear();
-
-        soldRows.forEach(
-          (row) => {
-            const number =
-              Number(
-                row.ball_number ??
-                row.ballNumber ??
-                row.number
-              );
-
-            if (
-              Number.isInteger(number)
-            ) {
-              soldBallMap.set(
-                number,
-                row
-              );
-            }
-          }
-        );
-
-        soldCount.textContent =
-          String(
-            soldBallMap.size
-          );
-
-        updateProgress(data);
-
-        renderBaseballs();
-
-      } catch (error) {
-        console.error(error);
-
-        showNotice(
-          "We couldn't load the latest baseball availability. Please refresh and try again.",
-          "error"
-        );
-      }
-    }
-
-    anonymous.addEventListener(
+    teamAnonymous.addEventListener(
       "change",
       () => {
-        if (
-          anonymous.checked
-        ) {
-          donorName.value = "";
-          donorName.disabled =
-            true;
+        if (teamAnonymous.checked) {
+          teamDonorName.value = "";
+          teamDonorName.disabled = true;
         } else {
-          donorName.disabled =
-            false;
+          teamDonorName.disabled = false;
         }
       }
     );
 
-    checkoutButton.addEventListener(
+    teamDonateButton.addEventListener(
       "click",
-      async () => {
-
-        const balls =
-          Array.from(
-            selectedBalls
-          ).sort(
-            (a, b) => a - b
-          );
-
-        if (
-          balls.length === 0
-        ) {
-          return;
-        }
-
-        checkoutButton.disabled =
-          true;
-
-        checkoutButton.textContent =
-          "Opening Checkout...";
-
-        try {
-          const response =
-            await fetch(
-              "/api/create-checkout",
-              {
-                method: "POST",
-
-                headers: {
-                  "content-type":
-                    "application/json"
-                },
-
-                body:
-                  JSON.stringify({
-                    player_slug:
-                      playerSlug,
-
-                    player_name:
-                      player.name,
-
-                    player_number:
-                      player.number,
-
-                    baseballs:
-                      balls,
-
-                    donor_name:
-                      getDonorName(),
-
-                    anonymous:
-                      anonymous.checked
-                  })
-              }
-            );
-
-          const data =
-            await response.json();
-
-          if (!response.ok) {
-
-            if (
-              response.status === 409
-            ) {
-              const conflicts =
-                data.unavailableBalls ||
-                data.soldBalls ||
-                [];
-
-              conflicts.forEach(
-                (number) => {
-                  const ballNumber =
-                    Number(number);
-
-                  if (
-                    Number.isInteger(
-                      ballNumber
-                    )
-                  ) {
-                    selectedBalls.delete(
-                      ballNumber
-                    );
-                  }
-                }
-              );
-
-              await loadFundraiser();
-            }
-
-            throw new Error(
-              data.error ||
-              "Unable to start checkout."
-            );
-          }
-
-          if (!data.url) {
-            throw new Error(
-              "Checkout URL was not returned."
-            );
-          }
-
-          window.location.href =
-            data.url;
-
-        } catch (error) {
-          console.error(error);
-
-          showNotice(
-            error.message ||
-            "Unable to start checkout. Please try again.",
-            "error"
-          );
-
-          checkoutButton.disabled =
-            selectedBalls.size === 0;
-
-          checkoutButton.textContent =
-            "Continue To Secure Checkout";
-        }
+      () => {
+        document
+          .getElementById("players")
+          .scrollIntoView({ behavior: "smooth" });
       }
     );
-
-    generalButton.addEventListener(
-      "click",
-      async () => {
-
-        const amount =
-          Number(
-            generalAmount.value
-          );
-
-        if (
-          !Number.isFinite(amount) ||
-          amount < 1
-        ) {
-          showNotice(
-            "Please enter a valid general donation amount.",
-            "error"
-          );
-
-          generalAmount.focus();
-
-          return;
-        }
-
-        generalButton.disabled =
-          true;
-
-        generalButton.textContent =
-          "Opening Checkout...";
-
-        try {
-          const response =
-            await fetch(
-              "/api/create-general-donation",
-              {
-                method: "POST",
-
-                headers: {
-                  "content-type":
-                    "application/json"
-                },
-
-                body:
-                  JSON.stringify({
-                    player_slug:
-                      playerSlug,
-
-                    player_name:
-                      player.name,
-
-                    player_number:
-                      player.number,
-
-                    amount:
-                      amount,
-
-                    donor_name:
-                      getDonorName(),
-
-                    anonymous:
-                      anonymous.checked
-                  })
-              }
-            );
-
-          const data =
-            await response.json();
-
-          if (!response.ok) {
-            throw new Error(
-              data.error ||
-              "Unable to start checkout."
-            );
-          }
-
-          if (!data.url) {
-            throw new Error(
-              "Checkout URL was not returned."
-            );
-          }
-
-          window.location.href =
-            data.url;
-
-        } catch (error) {
-          console.error(error);
-
-          showNotice(
-            error.message ||
-            "Unable to start checkout. Please try again.",
-            "error"
-          );
-
-          generalButton.disabled =
-            false;
-
-          generalButton.textContent =
-            "Make General Donation";
-        }
-      }
-    );
-
-    const paymentStatus =
-      params.get("payment");
-
-    if (
-      paymentStatus ===
-      "success"
-    ) {
-      showNotice(
-        "Thank you! Your donation was completed successfully.",
-        "success"
-      );
-    }
-
-    if (
-      paymentStatus ===
-      "cancelled"
-    ) {
-      showNotice(
-        "Checkout was cancelled. Your baseballs were not purchased.",
-        "error"
-      );
-    }
-
-    loadFundraiser();
   </script>
+
 
 </body>
 </html>
